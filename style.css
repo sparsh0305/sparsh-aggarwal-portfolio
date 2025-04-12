@@ -12,6 +12,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    scroll-behavior: smooth;
 }
 
 body {
@@ -19,6 +20,12 @@ body {
     line-height: 1.6;
     color: var(--dark);
     background-color: var(--light);
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+body.dark-mode {
+    background-color: var(--dark);
+    color: var(--light);
 }
 
 .container {
@@ -49,7 +56,7 @@ h2 {
     padding-bottom: 10px;
 }
 
-h2:after {
+h2::after {
     content: '';
     position: absolute;
     width: 50px;
@@ -88,6 +95,7 @@ img {
     max-width: 100%;
 }
 
+/* Buttons */
 .btn {
     display: inline-block;
     padding: 12px 24px;
@@ -106,6 +114,45 @@ img {
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }
 
+.btn-outline {
+    background: transparent;
+    border: 2px solid var(--light);
+    color: var(--light);
+}
+
+.btn-outline:hover {
+    background: var(--light);
+    color: var(--primary);
+}
+
+/* Dark Mode Support */
+body.dark-mode h1,
+body.dark-mode h2,
+body.dark-mode h3,
+body.dark-mode h4,
+body.dark-mode p,
+body.dark-mode a {
+    color: var(--light);
+}
+
+body.dark-mode .btn {
+    background: var(--light);
+    color: var(--dark);
+}
+
+body.dark-mode .btn:hover {
+    background: var(--secondary);
+    color: white;
+}
+
+body.dark-mode .skill-card,
+body.dark-mode .timeline-content,
+body.dark-mode .education-card,
+body.dark-mode .extra-card {
+    background-color: #34495e;
+    color: white;
+}
+
 /* Header */
 header {
     background-color: var(--primary);
@@ -116,6 +163,7 @@ header {
     top: 0;
     z-index: 1000;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease;
 }
 
 nav {
@@ -144,7 +192,7 @@ nav {
     position: relative;
 }
 
-.nav-links a:after {
+.nav-links a::after {
     content: '';
     position: absolute;
     width: 0;
@@ -155,11 +203,11 @@ nav {
     transition: width 0.3s ease;
 }
 
-.nav-links a:hover:after {
+.nav-links a:hover::after {
     width: 100%;
 }
 
-/* Hamburger Menu */
+/* Hamburger */
 .hamburger {
     display: none;
     cursor: pointer;
@@ -173,19 +221,22 @@ nav {
     transition: all 0.3s ease;
 }
 
-/* Hero Section */
+/* Hero */
 .hero {
     background: linear-gradient(135deg, var(--primary) 0%, #2c3e50 100%);
     color: var(--light);
     height: 100vh;
     display: flex;
     align-items: center;
+    justify-content: center;
     text-align: center;
     position: relative;
+    padding: 0 20px;
 }
 
 .hero-content {
-    width: 100%;
+    max-width: 800px;
+    animation: fadeIn 2s ease;
 }
 
 .hero h1 {
@@ -196,9 +247,8 @@ nav {
 
 .hero p {
     font-size: 1.2rem;
-    max-width: 700px;
-    margin: 0 auto 30px auto;
     color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 30px;
     animation: fadeInUp 1s ease;
 }
 
@@ -206,21 +256,7 @@ nav {
     animation: fadeIn 1.5s ease;
 }
 
-.hero-btns .btn {
-    margin: 0 10px;
-}
-
-.btn-outline {
-    background: transparent;
-    border: 2px solid var(--light);
-}
-
-.btn-outline:hover {
-    background: var(--light);
-    color: var(--primary);
-}
-
-/* About Section */
+/* About */
 .about-content {
     display: flex;
     flex-wrap: wrap;
@@ -244,7 +280,7 @@ nav {
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
 }
 
-/* Skills Section */
+/* Skills */
 .skills {
     background-color: var(--light-gray);
 }
@@ -273,7 +309,7 @@ nav {
     margin-bottom: 20px;
 }
 
-/* Experience Section */
+/* Experience Timeline */
 .timeline {
     position: relative;
     max-width: 800px;
@@ -298,13 +334,8 @@ nav {
     box-sizing: border-box;
 }
 
-.timeline-item:nth-child(odd) {
-    left: 0;
-}
-
-.timeline-item:nth-child(even) {
-    left: 50%;
-}
+.timeline-item:nth-child(odd) { left: 0; }
+.timeline-item:nth-child(even) { left: 50%; }
 
 .timeline-item::after {
     content: '';
@@ -318,32 +349,22 @@ nav {
     z-index: 1;
 }
 
-.timeline-item:nth-child(odd)::after {
-    right: -10px;
-}
-
-.timeline-item:nth-child(even)::after {
-    left: -10px;
-}
+.timeline-item:nth-child(odd)::after { right: -10px; }
+.timeline-item:nth-child(even)::after { left: -10px; }
 
 .timeline-content {
-    padding: 20px;
     background-color: white;
     border-radius: 10px;
+    padding: 20px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-}
-
-.timeline-content h3 {
-    margin-top: 0;
 }
 
 .timeline-content .date {
     color: var(--gray);
     font-style: italic;
-    margin-bottom: 15px;
 }
 
-/* Education Section */
+/* Education */
 .education {
     background-color: var(--light-gray);
 }
@@ -366,13 +387,7 @@ nav {
     transform: translateY(-10px);
 }
 
-.education-card .date {
-    color: var(--gray);
-    font-style: italic;
-    margin-bottom: 10px;
-}
-
-/* Extracurricular & Hobbies Section */
+/* Extras */
 .extras-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -402,7 +417,7 @@ nav {
     color: var(--gray);
 }
 
-/* Contact Section */
+/* Contact */
 .contact-container {
     display: flex;
     flex-wrap: wrap;
@@ -440,7 +455,6 @@ nav {
     padding: 12px;
     border: 1px solid #ddd;
     border-radius: 5px;
-    font-family: inherit;
     font-size: 1rem;
 }
 
@@ -473,11 +487,6 @@ footer {
     color: var(--secondary);
 }
 
-.copyright {
-    font-size: 0.9rem;
-    color: rgba(255, 255, 255, 0.7);
-}
-
 /* Animations */
 @keyframes fadeIn {
     from { opacity: 0; }
@@ -485,95 +494,71 @@ footer {
 }
 
 @keyframes fadeInDown {
-    from {
-        opacity: 0;
-        transform: translateY(-20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
 @keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
-/* Responsive Design */
+/* Responsive */
 @media screen and (max-width: 768px) {
     .hamburger {
         display: block;
     }
-    
+
     .nav-links {
         position: absolute;
         right: 0;
         top: 70px;
-        height: 0;
-        overflow: hidden;
         background-color: var(--primary);
         flex-direction: column;
         width: 100%;
         text-align: center;
-        transition: all 0.5s ease;
+        overflow: hidden;
+        max-height: 0;
+        transition: max-height 0.4s ease;
     }
-    
+
     .nav-links.active {
-        height: auto;
+        max-height: 300px;
         padding: 20px 0;
     }
-    
+
     .nav-links li {
         margin: 15px 0;
     }
-    
+
     .about-content {
         flex-direction: column;
     }
-    
+
     .about-text {
         padding-right: 0;
         margin-bottom: 30px;
     }
-    
+
     .timeline::after {
         left: 31px;
     }
-    
+
     .timeline-item {
         width: 100%;
         padding-left: 70px;
         padding-right: 25px;
+        left: 0 !important;
     }
-    
-    .timeline-item:nth-child(even) {
-        left: 0;
-    }
-    
+
     .timeline-item::after {
-        left: 15px;
+        left: 15px !important;
     }
-    
-    .timeline-item:nth-child(odd)::after {
-        right: auto;
-        left: 15px;
-    }
-    
-    .timeline-item:nth-child(even)::after {
-        left: 15px;
-    }
-    
+
     .contact-container {
         flex-direction: column;
     }
-    
+
     .contact-info {
         padding-right: 0;
         margin-bottom: 30px;
