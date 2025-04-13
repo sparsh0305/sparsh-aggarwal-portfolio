@@ -3,877 +3,353 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sparsh Aggarwal - Portfolio</title>
-    <style>
-        /* Global Styles */
-        :root {
-            --primary: #3a6ea5;
-            --secondary: #ff6b6b;
-            --dark: #2c3e50;
-            --light: #f8f9fa;
-            --gray: #6c757d;
-            --light-gray: #e9ecef;
-        }
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: var(--dark);
-            background-color: var(--light);
-        }
-        
-        .container {
-            max-width: 1140px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-        
-        section {
-            padding: 80px 0;
-        }
-        
-        h1, h2, h3, h4 {
-            margin-bottom: 20px;
-            font-weight: 600;
-        }
-        
-        h1 {
-            font-size: 2.5rem;
-            color: var(--light);
-        }
-        
-        h2 {
-            font-size: 2rem;
-            text-align: center;
-            margin-bottom: 40px;
-            position: relative;
-            padding-bottom: 10px;
-        }
-        
-        h2:after {
-            content: '';
-            position: absolute;
-            width: 50px;
-            height: 3px;
-            background-color: var(--primary);
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-        }
-        
-        h3 {
-            font-size: 1.5rem;
-            color: var(--primary);
-        }
-        
-        h4 {
-            font-size: 1.2rem;
-        }
-        
-        p {
-            margin-bottom: 20px;
-            color: var(--gray);
-        }
-        
-        a {
-            text-decoration: none;
-            color: var(--primary);
-            transition: all 0.3s ease;
-        }
-        
-        a:hover {
-            color: var(--secondary);
-        }
-        
-        img {
-            max-width: 100%;
-        }
-        
-        .btn {
-            display: inline-block;
-            padding: 12px 24px;
-            background: var(--primary);
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            font-weight: 500;
-        }
-        
-        .btn:hover {
-            background: #2a5a8a;
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-        }
-        
-        /* Header */
-        header {
-            background-color: var(--primary);
-            color: var(--light);
-            padding: 15px 0;
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-        }
-        
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        
-        .logo {
-            font-size: 1.5rem;
-            font-weight: bold;
-            color: var(--light);
-        }
-        
-        .nav-links {
-            list-style: none;
-            display: flex;
-        }
-        
-        .nav-links li {
-            margin-left: 30px;
-        }
-        
-        .nav-links a {
-            color: var(--light);
-            position: relative;
-        }
-        
-        .nav-links a:after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            background-color: var(--light);
-            bottom: -5px;
-            left: 0;
-            transition: width 0.3s ease;
-        }
-        
-        .nav-links a:hover:after {
-            width: 100%;
-        }
-        
-        /* Hamburger Menu */
-        .hamburger {
-            display: none;
-            cursor: pointer;
-        }
-        
-        .hamburger div {
-            width: 25px;
-            height: 3px;
-            background-color: var(--light);
-            margin: 5px;
-            transition: all 0.3s ease;
-        }
-        
-        /* Hero Section */
-        .hero {
-            background: linear-gradient(135deg, var(--primary) 0%, #2c3e50 100%);
-            color: var(--light);
-            height: 100vh;
-            display: flex;
-            align-items: center;
-            text-align: center;
-            position: relative;
-        }
-        
-        .hero-content {
-            width: 100%;
-        }
-        
-        .hero h1 {
-            font-size: 3rem;
-            margin-bottom: 20px;
-            animation: fadeInDown 1s ease;
-        }
-        
-        .hero p {
-            font-size: 1.2rem;
-            max-width: 700px;
-            margin: 0 auto 30px auto;
-            color: rgba(255, 255, 255, 0.9);
-            animation: fadeInUp 1s ease;
-        }
-        
-        .hero-btns {
-            animation: fadeIn 1.5s ease;
-        }
-        
-        .hero-btns .btn {
-            margin: 0 10px;
-        }
-        
-        .btn-outline {
-            background: transparent;
-            border: 2px solid var(--light);
-        }
-        
-        .btn-outline:hover {
-            background: var(--light);
-            color: var(--primary);
-        }
-        
-        /* About Section */
-        .about-content {
-            display: flex;
-            flex-wrap: wrap;
-            align-items: center;
-            justify-content: space-between;
-        }
-        
-        .about-text {
-            flex: 1;
-            padding-right: 40px;
-        }
-        
-        .about-image {
-            flex: 1;
-            text-align: center;
-        }
-        
-        .about-image img {
-            max-width: 80%;
-            border-radius: 10px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-        }
-        
-        /* Skills Section */
-        .skills {
-            background-color: var(--light-gray);
-        }
-        
-        .skills-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 30px;
-        }
-        
-        .skill-card {
-            background-color: white;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-            transition: transform 0.3s ease;
-        }
-        
-        .skill-card:hover {
-            transform: translateY(-10px);
-        }
-        
-        .skill-card i {
-            font-size: 2.5rem;
-            color: var(--primary);
-            margin-bottom: 20px;
-        }
-        
-        /* Experience Section */
-        .timeline {
-            position: relative;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-        
-        .timeline::after {
-            content: '';
-            position: absolute;
-            width: 2px;
-            background-color: var(--light-gray);
-            top: 0;
-            bottom: 0;
-            left: 50%;
-            margin-left: -1px;
-        }
-        
-        .timeline-item {
-            padding: 10px 40px;
-            position: relative;
-            width: 50%;
-            box-sizing: border-box;
-        }
-        
-        .timeline-item:nth-child(odd) {
-            left: 0;
-        }
-        
-        .timeline-item:nth-child(even) {
-            left: 50%;
-        }
-        
-        .timeline-item::after {
-            content: '';
-            position: absolute;
-            width: 20px;
-            height: 20px;
-            background-color: white;
-            border: 4px solid var(--primary);
-            border-radius: 50%;
-            top: 15px;
-            z-index: 1;
-        }
-        
-        .timeline-item:nth-child(odd)::after {
-            right: -10px;
-        }
-        
-        .timeline-item:nth-child(even)::after {
-            left: -10px;
-        }
-        
-        .timeline-content {
-            padding: 20px;
-            background-color: white;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-        }
-        
-        .timeline-content h3 {
-            margin-top: 0;
-        }
-        
-        .timeline-content .date {
-            color: var(--gray);
-            font-style: italic;
-            margin-bottom: 15px;
-        }
-        
-        /* Education Section */
-        .education {
-            background-color: var(--light-gray);
-        }
-        
-        .education-cards {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 30px;
-        }
-        
-        .education-card {
-            background-color: white;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-            transition: transform 0.3s ease;
-        }
-        
-        .education-card:hover {
-            transform: translateY(-10px);
-        }
-        
-        .education-card .date {
-            color: var(--gray);
-            font-style: italic;
-            margin-bottom: 10px;
-        }
-        
-        /* Extracurricular & Hobbies Section */
-        .extras-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 30px;
-        }
-        
-        .extra-card {
-            background-color: white;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-            height: 100%;
-        }
-        
-        .extra-card h3 {
-            text-align: center;
-            margin-bottom: 20px;
-        }
-        
-        .hobbies-list, .extra-list {
-            list-style-position: inside;
-            padding-left: 20px;
-        }
-        
-        .hobbies-list li, .extra-list li {
-            margin-bottom: 10px;
-            color: var(--gray);
-        }
-        
-        /* Contact Section */
-        .contact-container {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-        }
-        
-        .contact-info {
-            flex: 1;
-            padding-right: 30px;
-        }
-        
-        .contact-form {
-            flex: 1;
-        }
-        
-        .contact-info-item {
-            display: flex;
-            align-items: flex-start;
-            margin-bottom: 20px;
-        }
-        
-        .contact-info-item i {
-            font-size: 1.5rem;
-            color: var(--primary);
-            margin-right: 15px;
-            margin-top: 5px;
-        }
-        
-        .form-group {
-            margin-bottom: 20px;
-        }
-        
-        .form-control {
-            width: 100%;
-            padding: 12px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            font-family: inherit;
-            font-size: 1rem;
-        }
-        
-        textarea.form-control {
-            min-height: 150px;
-            resize: vertical;
-        }
-        
-        /* Footer */
-        footer {
-            background-color: var(--dark);
-            color: var(--light);
-            padding: 40px 0;
-            text-align: center;
-        }
-        
-        .social-links {
-            margin-bottom: 20px;
-        }
-        
-        .social-links a {
-            display: inline-block;
-            color: var(--light);
-            margin: 0 10px;
-            font-size: 1.5rem;
-            transition: color 0.3s ease;
-        }
-        
-        .social-links a:hover {
-            color: var(--secondary);
-        }
-        
-        .copyright {
-            font-size: 0.9rem;
-            color: rgba(255, 255, 255, 0.7);
-        }
-        
-        /* Animations */
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-        
-        @keyframes fadeInDown {
-            from {
-                opacity: 0;
-                transform: translateY(-20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        
-        /* Responsive Design */
-        @media screen and (max-width: 768px) {
-            .hamburger {
-                display: block;
-            }
-            
-            .nav-links {
-                position: absolute;
-                right: 0;
-                top: 70px;
-                height: 0;
-                overflow: hidden;
-                background-color: var(--primary);
-                flex-direction: column;
-                width: 100%;
-                text-align: center;
-                transition: all 0.5s ease;
-            }
-            
-            .nav-links.active {
-                height: auto;
-                padding: 20px 0;
-            }
-            
-            .nav-links li {
-                margin: 15px 0;
-            }
-            
-            .about-content {
-                flex-direction: column;
-            }
-            
-            .about-text {
-                padding-right: 0;
-                margin-bottom: 30px;
-            }
-            
-            .timeline::after {
-                left: 31px;
-            }
-            
-            .timeline-item {
-                width: 100%;
-                padding-left: 70px;
-                padding-right: 25px;
-            }
-            
-            .timeline-item:nth-child(even) {
-                left: 0;
-            }
-            
-            .timeline-item::after {
-                left: 15px;
-            }
-            
-            .timeline-item:nth-child(odd)::after {
-                right: auto;
-                left: 15px;
-            }
-            
-            .timeline-item:nth-child(even)::after {
-                left: 15px;
-            }
-            
-            .contact-container {
-                flex-direction: column;
-            }
-            
-            .contact-info {
-                padding-right: 0;
-                margin-bottom: 30px;
-            }
-        }
-    </style>
-    <!-- Font Awesome for icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Sparsh Mittal - Software Engineer</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- Header -->
     <header>
-        <div class="container">
-            <nav>
-                <div class="logo">SA</div>
+        <nav class="navbar">
+            <div class="container">
+                <h1 class="logo">Sparsh Mittal</h1>
                 <ul class="nav-links">
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#skills">Skills</a></li>
-                    <li><a href="#experience">Experience</a></li>
-                    <li><a href="#education">Education</a></li>
-                    <li><a href="#extras">Extras</a></li>
-                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="#about" class="nav-link">About</a></li>
+                    <li><a href="#experience" class="nav-link">Experience</a></li>
+                    <li><a href="#projects" class="nav-link">Projects</a></li>
+                    <li><a href="#education" class="nav-link">Education</a></li>
+                    <li><a href="#contact" class="nav-link">Contact</a></li>
                 </ul>
                 <div class="hamburger">
-                    <div class="line1"></div>
-                    <div class="line2"></div>
-                    <div class="line3"></div>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
                 </div>
-            </nav>
-        </div>
+            </div>
+        </nav>
     </header>
 
-    <!-- Hero Section -->
-    <section id="home" class="hero">
-        <div class="container hero-content">
-            <h1>Sparsh Aggarwal</h1>
-            <p>BBA Student at Indian Institute of Management Bangalore with a passion for business, marketing, and entrepreneurship.</p>
-            <div class="hero-btns">
-                <a href="#contact" class="btn">Contact Me</a>
-                <a href="#about" class="btn btn-outline">Learn More</a>
+    <section id="hero" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Hi, I'm <span class="highlight">Sparsh Mittal</span></h1>
+                <h2>Software Engineer</h2>
+                <p>Passionate about building scalable applications and solving complex problems</p>
+                <div class="hero-buttons">
+                    <a href="#contact" class="btn btn-primary">Contact Me</a>
+                    <a href="#projects" class="btn btn-secondary">View Projects</a>
+                </div>
+            </div>
+            <div class="social-links">
+                <a href="https://github.com/sparsh0305" target="_blank" class="social-icon"><i class="fab fa-github"></i></a>
+                <a href="https://www.linkedin.com/in/spmittal/" target="_blank" class="social-icon"><i class="fab fa-linkedin"></i></a>
+                <a href="mailto:sparshmittal2000@gmail.com" class="social-icon"><i class="fas fa-envelope"></i></a>
             </div>
         </div>
     </section>
 
-    <!-- About Section -->
-    <section id="about" class="about">
+    <section id="about" class="about section">
         <div class="container">
-            <h2>About Me</h2>
+            <h2 class="section-title">About Me</h2>
             <div class="about-content">
                 <div class="about-text">
-                    <p>First-year BBA student at Indian Institute of Management Bangalore with solid foundations in finance, marketing, and business strategy. I demonstrate strong motivation and interest in market research, digital business models, and entrepreneurship.</p>
-                    <p>I actively engage in academic and extracurricular activities to enhance my analytical and problem-solving skills. With a background in my family business operations, I've gained practical exposure to business decision-making, inventory management, and customer service.</p>
-                    <p>My goal is to combine my academic knowledge with practical business experience to create innovative solutions for real-world business challenges.</p>
-                    <a href="#contact" class="btn">Get In Touch</a>
+                    <p>I am a software engineer with expertise in backend development, distributed systems, and cloud technologies. With over 2 years of professional experience, I've worked on building robust, scalable applications that solve real-world problems.</p>
+                    <p>My technical skills include Java, Python, Spring Boot, AWS, and more. I'm passionate about writing clean, maintainable code and constantly improving my skills.</p>
                 </div>
-                <div class="about-image">
-                    <img src="/api/placeholder/400/400" alt="Sparsh Aggarwal">
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Skills Section -->
-    <section id="skills" class="skills">
-        <div class="container">
-            <h2>My Skills</h2>
-            <div class="skills-container">
-                <div class="skill-card">
-                    <i class="fas fa-bullhorn"></i>
-                    <h3>Marketing & Branding</h3>
-                    <p>Understanding of consumer behavior, brand positioning, and market trends.</p>
-                </div>
-                <div class="skill-card">
-                    <i class="fas fa-chart-line"></i>
-                    <h3>Market Research & Data Analysis</h3>
-                    <p>Ability to conduct effective research and derive valuable business insights.</p>
-                </div>
-                <div class="skill-card">
-                    <i class="fas fa-chess"></i>
-                    <h3>Business Strategy & Operations</h3>
-                    <p>Exposure to decision-making, inventory handling, and customer management.</p>
-                </div>
-                <div class="skill-card">
-                    <i class="fas fa-calculator"></i>
-                    <h3>Financial Management</h3>
-                    <p>Familiar with financial statements, budgeting, and business operations.</p>
-                </div>
-                <div class="skill-card">
-                    <i class="fas fa-users"></i>
-                    <h3>Leadership & Team Coordination</h3>
-                    <p>Experience in managing teams, event coordination, and enhancing organizational skills.</p>
-                </div>
-                <div class="skill-card">
-                    <i class="fas fa-laptop-code"></i>
-                    <h3>Technical & Creative Skills</h3>
-                    <p>Proficient in PowerPoint, Word, Canva, Notion, ChatGPT, basic HTML & CSS, and photography & photo editing.</p>
+                <div class="skills">
+                    <h3>Technical Skills</h3>
+                    <div class="skill-categories">
+                        <div class="skill-category">
+                            <h4>Languages</h4>
+                            <ul class="skill-list">
+                                <li>Java</li>
+                                <li>Python</li>
+                                <li>JavaScript</li>
+                                <li>SQL</li>
+                                <li>C++</li>
+                            </ul>
+                        </div>
+                        <div class="skill-category">
+                            <h4>Frameworks</h4>
+                            <ul class="skill-list">
+                                <li>Spring Boot</li>
+                                <li>React</li>
+                                <li>Node.js</li>
+                                <li>Express</li>
+                            </ul>
+                        </div>
+                        <div class="skill-category">
+                            <h4>Tools & Platforms</h4>
+                            <ul class="skill-list">
+                                <li>AWS</li>
+                                <li>Docker</li>
+                                <li>Kubernetes</li>
+                                <li>Git</li>
+                                <li>Jenkins</li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Experience Section -->
-    <section id="experience" class="experience">
+    <section id="experience" class="experience section">
         <div class="container">
-            <h2>Work Experience</h2>
+            <h2 class="section-title">Work Experience</h2>
             <div class="timeline">
                 <div class="timeline-item">
                     <div class="timeline-content">
-                        <h3>Business Operations Assistant</h3>
-                        <p class="date">July 2024 - October 2024</p>
-                        <p>Family Business, Faridabad, Haryana</p>
-                        <ul>
-                            <li>Assisted in managing daily business operations, including inventory handling, customer interactions, and financial tasks such as tracking sales and managing invoices</li>
-                            <li>Conducted market research to understand customer preferences and improve product offerings</li>
-                            <li>Gained practical exposure to business decision-making, problem-solving, and operational management, strengthening analytical and leadership skills</li>
+                        <div class="job-header">
+                            <h3>Software Development Engineer</h3>
+                            <div class="company">Amazon</div>
+                            <div class="period">June 2022 - Present</div>
+                        </div>
+                        <ul class="achievements">
+                            <li>Led the development of a microservice that reduced processing time by 40%, handling over 5M daily transactions</li>
+                            <li>Implemented CI/CD pipeline that decreased deployment time from 2 hours to 15 minutes</li>
+                            <li>Optimized database queries resulting in 30% improvement in latency across critical API endpoints</li>
+                            <li>Collaborated with cross-functional teams to design and implement new features</li>
                         </ul>
+                        <div class="tech-stack">
+                            <span class="tech-tag">Java</span>
+                            <span class="tech-tag">Spring Boot</span>
+                            <span class="tech-tag">AWS</span>
+                            <span class="tech-tag">DynamoDB</span>
+                            <span class="tech-tag">Docker</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="job-header">
+                            <h3>Software Engineer Intern</h3>
+                            <div class="company">Microsoft</div>
+                            <div class="period">Jan 2022 - May 2022</div>
+                        </div>
+                        <ul class="achievements">
+                            <li>Developed and integrated RESTful APIs for internal tools, resulting in 25% faster data retrieval</li>
+                            <li>Implemented automated testing procedures that increased code coverage from 60% to 85%</li>
+                            <li>Collaborated with designers to improve UI/UX for web applications</li>
+                        </ul>
+                        <div class="tech-stack">
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">Django</span>
+                            <span class="tech-tag">React</span>
+                            <span class="tech-tag">SQL</span>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Education Section -->
-    <section id="education" class="education">
+    <section id="projects" class="projects section">
         <div class="container">
-            <h2>Education</h2>
-            <div class="education-cards">
-                <div class="education-card">
-                    <h3>Indian Institute of Management Bangalore</h3>
-                    <p class="date">September 2024 - September 2027</p>
-                    <p><strong>Bachelor of Business Administration</strong></p>
-                    <p>Digital Business & Entrepreneurship</p>
+            <h2 class="section-title">Projects</h2>
+            <div class="project-grid">
+                <div class="project-card">
+                    <div class="project-content">
+                        <h3>Distributed Task Scheduler</h3>
+                        <p>A highly available distributed task scheduling system capable of handling 1M+ tasks per day with fault tolerance and load balancing</p>
+                        <div class="project-details">
+                            <div class="project-impact">
+                                <h4>Impact:</h4>
+                                <p>Reduced processing latency by 60% compared to previous solution; implemented with horizontal scaling capability</p>
+                            </div>
+                            <div class="tech-stack">
+                                <span class="tech-tag">Java</span>
+                                <span class="tech-tag">Kafka</span>
+                                <span class="tech-tag">Redis</span>
+                                <span class="tech-tag">AWS</span>
+                                <span class="tech-tag">Docker</span>
+                            </div>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/sparsh0305/task-scheduler" target="_blank" class="btn btn-sm">GitHub <i class="fab fa-github"></i></a>
+                            <a href="#" class="btn btn-sm">Demo <i class="fas fa-external-link-alt"></i></a>
+                        </div>
+                    </div>
                 </div>
-                <div class="education-card">
-                    <h3>Delhi Public School Ghaziabad</h3>
-                    <p class="date">March 2021 - March 2023</p>
-                    <p><strong>Senior Secondary</strong></p>
-                    <p>Commerce</p>
+
+                <div class="project-card">
+                    <div class="project-content">
+                        <h3>E-Commerce Analytics Dashboard</h3>
+                        <p>Real-time analytics dashboard for e-commerce platforms with interactive visualizations and predictive analysis</p>
+                        <div class="project-details">
+                            <div class="project-impact">
+                                <h4>Impact:</h4>
+                                <p>Enabled data-driven decision making by processing 500K+ daily events and providing insights on customer behavior</p>
+                            </div>
+                            <div class="tech-stack">
+                                <span class="tech-tag">React</span>
+                                <span class="tech-tag">Node.js</span>
+                                <span class="tech-tag">MongoDB</span>
+                                <span class="tech-tag">D3.js</span>
+                                <span class="tech-tag">AWS</span>
+                            </div>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/sparsh0305/ecommerce-analytics" target="_blank" class="btn btn-sm">GitHub <i class="fab fa-github"></i></a>
+                            <a href="#" class="btn btn-sm">Demo <i class="fas fa-external-link-alt"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-content">
+                        <h3>Sentiment Analysis API</h3>
+                        <p>A machine learning-powered API for analyzing sentiment in customer reviews and social media posts</p>
+                        <div class="project-details">
+                            <div class="project-impact">
+                                <h4>Impact:</h4>
+                                <p>Achieved 87% accuracy on sentiment classification with low-latency response (< 100ms)</p>
+                            </div>
+                            <div class="tech-stack">
+                                <span class="tech-tag">Python</span>
+                                <span class="tech-tag">Flask</span>
+                                <span class="tech-tag">TensorFlow</span>
+                                <span class="tech-tag">NLP</span>
+                                <span class="tech-tag">Docker</span>
+                            </div>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/sparsh0305/sentiment-api" target="_blank" class="btn btn-sm">GitHub <i class="fab fa-github"></i></a>
+                            <a href="#" class="btn btn-sm">API Docs <i class="fas fa-book"></i></a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Extracurricular & Hobbies Section -->
-    <section id="extras" class="extras">
+    <section id="education" class="education section">
         <div class="container">
-            <h2>Extracurricular & Hobbies</h2>
-            <div class="extras-grid">
-                <div class="extra-card">
-                    <h3>Extracurricular Activities</h3>
-                    <ul class="extra-list">
-                        <li>Held key leadership roles as School Vice Captain and Proctor, overseeing student discipline and coordination</li>
-                        <li>Assisted in planning and organizing school-level events and assemblies</li>
-                        <li>Was an active member of the School Media Cell, contributing to photography, content creation, and event coverage</li>
-                    </ul>
-                </div>
-                <div class="extra-card">
-                    <h3>Hobbies & Interests</h3>
-                    <ul class="hobbies-list">
-                        <li>Photography and editing</li>
-                        <li>Designing presentations using Canva</li>
-                        <li>Cooking and experimenting with new recipes</li>
-                        <li>Painting and creative sketching</li>
-                    </ul>
+            <h2 class="section-title">Education</h2>
+            <div class="education-item">
+                <div class="education-content">
+                    <h3>B.Tech in Computer Science</h3>
+                    <div class="school">Indian Institute of Technology, Delhi</div>
+                    <div class="period">2018 - 2022</div>
+                    <div class="achievements">
+                        <p><strong>GPA:</strong> 9.2/10.0</p>
+                        <p><strong>Relevant Coursework:</strong> Data Structures & Algorithms, Operating Systems, Database Management, Computer Networks, Machine Learning</p>
+                        <p><strong>Activities:</strong> Technical Lead for College Developer Community, Participated in ACM-ICPC Regional Finals</p>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Contact Section -->
-    <section id="contact" class="contact">
+    <section id="contact" class="contact section">
         <div class="container">
-            <h2>Contact Me</h2>
-            <div class="contact-container">
+            <h2 class="section-title">Contact Me</h2>
+            <div class="contact-content">
                 <div class="contact-info">
-                    <div class="contact-info-item">
-                        <i class="fas fa-phone"></i>
-                        <div>
-                            <h4>Phone</h4>
-                            <p>+91 9811631672</p>
-                        </div>
-                    </div>
-                    <div class="contact-info-item">
+                    <div class="contact-item">
                         <i class="fas fa-envelope"></i>
-                        <div>
-                            <h4>Email</h4>
-                            <p>sparsh.aggarwal05@gmail.com</p>
-                        </div>
+                        <a href="mailto:sparshmittal2000@gmail.com">sparshmittal2000@gmail.com</a>
                     </div>
-                    <div class="contact-info-item">
+                    <div class="contact-item">
+                        <i class="fab fa-linkedin"></i>
+                        <a href="https://www.linkedin.com/in/spmittal/" target="_blank">linkedin.com/in/spmittal</a>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fab fa-github"></i>
+                        <a href="https://github.com/sparsh0305" target="_blank">github.com/sparsh0305</a>
+                    </div>
+                    <div class="contact-item">
                         <i class="fas fa-map-marker-alt"></i>
-                        <div>
-                            <h4>Location</h4>
-                            <p>Faridabad, Haryana, India</p>
-                        </div>
+                        <span>San Francisco, CA</span>
                     </div>
                 </div>
                 <div class="contact-form">
                     <form id="contactForm">
                         <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Your Name" required>
+                            <label for="name">Name</label>
+                            <input type="text" id="name" name="name" required>
                         </div>
                         <div class="form-group">
-                            <input type="email" class="form-control" placeholder="Your Email" required>
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" required>
                         </div>
                         <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Subject">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" rows="5" required></textarea>
                         </div>
-                        <div class="form-group">
-                            <textarea class="form-control" placeholder="Your Message" required></textarea>
-                        </div>
-                        <button type="submit" class="btn">Send Message</button>
+                        <button type="submit" class="btn btn-primary">Send Message</button>
                     </form>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
     <footer>
         <div class="container">
-            <div class="social-links">
-                <a href="#"><i class="fab fa-linkedin"></i></a>
-                <a href="#"><i class="fab fa-github"></i></a>
-                <a href="#"><i class="fab fa-instagram"></i></a>
-                <a href="#"><i class="fab fa-twitter"></i></a>
-            </div>
-            <p class="copyright">&copy; 2025 Sparsh Aggarwal. All Rights Reserved.</p>
+            <p>&copy; 2025 Sparsh Mittal. All rights reserved.</p>
         </div>
     </footer>
 
-    <!-- JavaScript -->
     <script>
-        // Mobile Navigation Toggle
+        // Mobile menu toggle
         const hamburger = document.querySelector('.hamburger');
         const navLinks = document.querySelector('.nav-links');
-        
+
         hamburger.addEventListener('click', () => {
             navLinks.classList.toggle('active');
+            hamburger.classList.toggle('active');
         });
-        
-        // Smooth Scrolling for Navigation Links
+
+        // Smooth scrolling for navigation links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
                 e.preventDefault();
                 
-                navLinks.classList.remove('active');
-                
+                if (navLinks.classList.contains('active')) {
+                    navLinks.classList.remove('active');
+                    hamburger.classList.remove('active');
+                }
+
                 const targetId = this.getAttribute('href');
-                const targetElement = document.querySelector(targetId);
-                
-                window.scrollTo({
-                    top: targetElement.offsetTop - 70,
+                document.querySelector(targetId).scrollIntoView({
                     behavior: 'smooth'
                 });
             });
         });
-        
-        // Form Submission (Prevent Default for Demo)
+
+        // Form submission handling
         const contactForm = document.getElementById('contactForm');
-        
         contactForm.addEventListener('submit', function(e) {
             e.preventDefault();
-            alert('Thank you for your message! This is a demo form.');
+            
+            // Add your form submission logic here
+            alert('Thank you for your message! I will get back to you soon.');
             contactForm.reset();
         });
-        
-        // Scroll Animation (Detect when elements enter viewport)
-        const fadeInElements = document.querySelectorAll('.skill-card, .timeline-item, .education-card, .extra-card');
-        
-        const fadeInOptions = {
-            threshold: 0.3,
-            rootMargin: "0px 0px -100px 0px"
-        };
-        
-        const fadeInObserver = new IntersectionObserver(function(entries, fadeInObserver) {
-            entries.forEach(entry => {
-                if (!entry.isIntersecting) {
-                    return;
-                } else {
-                    entry.target.style.opacity = 1;
-                    entry.target.style.transform = 'translateY(0)';
-                    fadeInObserver.unobserve(entry.target);
+
+        // Highlight active section in navigation
+        window.addEventListener('scroll', () => {
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('.nav-link');
+            
+            let current = '';
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                
+                if (scrollY >= (sectionTop - 200)) {
+                    current = section.getAttribute('id');
                 }
             });
-        }, fadeInOptions);
-        
-        fadeInElements.forEach(element => {
-            element.style.opacity = 0;
-            element.style.transform = 'translateY(20px)';
-            element.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
-            fadeInObserver.observe(element);
+            
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
+            });
         });
     </script>
 </body>
