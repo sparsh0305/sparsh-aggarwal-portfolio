@@ -65,6 +65,44 @@
             background: #FF6B35;
         }
 
+        /* Added hamburger menu styles for mobile */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            padding: 5px;
+        }
+
+        .hamburger span {
+            width: 25px;
+            height: 3px;
+            background: white;
+            margin: 3px 0;
+            transition: 0.3s;
+            border-radius: 2px;
+        }
+
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(-45deg) translate(-5px, 6px);
+        }
+
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(45deg) translate(-5px, -6px);
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-menu.active {
+            display: flex;
+        }
+
         /* Hero Section */
         .hero {
             min-height: 100vh;
@@ -572,41 +610,81 @@
         /* Responsive Design */
         @media (max-width: 768px) {
             .navbar {
-                padding: 10px 20px;
+                padding: 15px 20px;
                 top: 10px;
                 left: 10px;
                 right: 10px;
                 transform: none;
                 width: auto;
+                border-radius: 15px;
+                /* Updated navbar for mobile hamburger menu */
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
             }
 
-            .navbar ul {
-                gap: 10px;
-                flex-wrap: wrap;
-                justify-content: center;
+            .hamburger {
+                display: flex;
+            }
+
+            .nav-menu {
+                position: fixed;
+                left: -100%;
+                top: 70px;
+                flex-direction: column;
+                background: rgba(0, 0, 0, 0.95);
+                backdrop-filter: blur(10px);
+                width: calc(100% - 20px);
+                margin: 0 10px;
+                border-radius: 15px;
+                text-align: center;
+                transition: 0.3s;
+                padding: 20px 0;
+                gap: 20px;
+            }
+
+            .nav-menu.active {
+                left: 0;
+            }
+
+            .nav-menu li {
+                margin: 10px 0;
             }
 
             .navbar a {
-                font-size: 0.9rem;
+                font-size: 1.1rem;
+                padding: 10px;
+                display: block;
             }
 
+            /* Improved mobile responsiveness */
             .hero-content {
                 grid-template-columns: 1fr;
                 text-align: center;
                 gap: 30px;
+                padding: 0 20px;
             }
 
             .hero-text h1 {
                 font-size: 2.5rem;
+                line-height: 1.2;
             }
 
             .hero-text h2 {
                 font-size: 1.2rem;
+                margin-bottom: 25px;
             }
 
             .hero-buttons {
                 flex-direction: column;
                 align-items: center;
+                gap: 15px;
+            }
+
+            .btn {
+                width: 100%;
+                max-width: 250px;
+                text-align: center;
             }
 
             .hero-image img {
@@ -615,11 +693,12 @@
             }
 
             .section {
-                padding: 60px 5%;
+                padding: 60px 20px;
             }
 
             .section-title {
-                font-size: 2rem;
+                font-size: 2.2rem;
+                margin-bottom: 40px;
             }
 
             .about-content,
@@ -633,6 +712,7 @@
 
             .education-card {
                 padding: 25px;
+                margin-bottom: 20px;
             }
 
             .timeline::before {
@@ -657,6 +737,7 @@
             .skills-grid,
             .projects-grid {
                 grid-template-columns: 1fr;
+                gap: 20px;
             }
 
             .skill-card,
@@ -665,17 +746,28 @@
             }
 
             .contact-item {
-                flex-direction: column;
-                text-align: center;
-                gap: 10px;
+                flex-direction: row;
+                text-align: left;
+                gap: 15px;
+                padding: 20px;
+            }
+
+            .contact-item i {
+                font-size: 1.2rem;
+                width: 25px;
             }
 
             .social-links {
                 justify-content: center;
+                flex-wrap: wrap;
             }
         }
 
         @media (max-width: 480px) {
+            .navbar {
+                padding: 12px 15px;
+            }
+
             .hero-text h1 {
                 font-size: 2rem;
             }
@@ -685,7 +777,11 @@
             }
 
             .section {
-                padding: 40px 3%;
+                padding: 40px 15px;
+            }
+
+            .section-title {
+                font-size: 1.8rem;
             }
 
             .btn {
@@ -693,12 +789,29 @@
                 font-size: 0.9rem;
             }
 
-            .navbar ul {
-                gap: 8px;
+            .hero-image img {
+                width: 200px;
+                height: 200px;
             }
 
-            .navbar a {
-                font-size: 0.8rem;
+            .skill-card,
+            .project-card {
+                padding: 20px;
+            }
+
+            .education-card {
+                padding: 20px;
+            }
+
+            .timeline-content {
+                padding: 15px;
+            }
+
+            .contact-item {
+                padding: 15px;
+                flex-direction: column;
+                text-align: center;
+                gap: 10px;
             }
         }
     </style>
@@ -706,7 +819,13 @@
 <body>
     <!-- Navbar -->
     <nav class="navbar">
-        <ul>
+        <!-- Added hamburger menu structure -->
+        <div class="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <ul class="nav-menu">
             <li><a href="#home">Home</a></li>
             <li><a href="#about">About</a></li>
             <li><a href="#education">Education</a></li>
@@ -922,6 +1041,22 @@
     </footer>
 
     <script>
+        const hamburger = document.querySelector('.hamburger');
+        const navMenu = document.querySelector('.nav-menu');
+
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navMenu.classList.toggle('active');
+        });
+
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('.nav-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('active');
+                navMenu.classList.remove('active');
+            });
+        });
+
         // Smooth scrolling for navigation links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
