@@ -9,22 +9,22 @@
     <!-- Google Fonts: Manrope -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
     <style>
         /* --- VARIABLES --- */
         :root {
             --bg-body: #050505;
             --bg-card: #0f0f0f;
-            --bg-glass: rgba(20, 20, 20, 0.85);
+            --bg-glass: rgba(10, 10, 10, 0.6);
             --text-primary: #ffffff;
-            --text-secondary: #b3b3b3;
-            --text-muted: #666666;
+            --text-secondary: #a3a3a3;
+            --text-muted: #555555;
             --accent: #ea580c; 
-            --accent-glow: rgba(234, 88, 12, 0.15);
+            --accent-glow: rgba(234, 88, 12, 0.25);
             --border: #262626;
             --font-main: 'Manrope', sans-serif;
-            --transition: all 0.3s ease;
+            --transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
             --radius-md: 12px;
             --radius-lg: 20px;
         }
@@ -37,7 +37,7 @@
             background-color: var(--bg-body);
             color: var(--text-primary);
             font-family: var(--font-main);
-            line-height: 1.5;
+            line-height: 1.6;
             overflow-x: hidden;
         }
 
@@ -46,382 +46,227 @@
         img { max-width: 100%; display: block; }
 
         section {
-            padding: 4rem 1.5rem;
+            padding: 6rem 1.5rem;
             max-width: 1100px;
             margin: 0 auto;
         }
 
         /* --- TYPOGRAPHY --- */
-        h1, h2, h3, h4 { line-height: 1.2; letter-spacing: -0.02em; }
+        h1, h2, h3, h4 { line-height: 1.1; letter-spacing: -0.03em; }
         
-        h2 {
-            font-size: 2.2rem;
-            margin-bottom: 2.5rem;
+        .section-title {
+            font-size: 2.5rem;
+            margin-bottom: 3.5rem;
+            font-weight: 700;
             display: inline-block;
-            border-bottom: 3px solid var(--accent);
-            padding-bottom: 5px;
+            background: linear-gradient(to right, #fff, #888);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-transform: capitalize; /* Ensure proper casing matches nav */
         }
 
-        p { color: var(--text-secondary); font-size: 0.95rem; margin-bottom: 1rem; }
-
-        /* --- ANIMATIONS --- */
-        
-        /* 1. Hero Entrance Animations */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .hero-animate {
-            opacity: 0; /* Start hidden */
-            animation: fadeInUp 0.8s ease-out forwards;
-        }
-
-        .delay-1 { animation-delay: 0.1s; }
-        .delay-2 { animation-delay: 0.2s; }
-        .delay-3 { animation-delay: 0.4s; }
-        .delay-4 { animation-delay: 0.6s; }
-
-        /* 2. Scroll Reveal Animation Class */
-        .reveal {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.8s cubic-bezier(0.5, 0, 0, 1);
-        }
-
-        .reveal.active {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        /* --- NAVIGATION --- */
+        /* --- NAVIGATION (Translucent) --- */
         nav {
             position: fixed;
-            top: 15px;
+            top: 20px;
             left: 50%;
             transform: translateX(-50%);
-            width: 95%;
-            max-width: 1100px;
+            width: 90%;
+            max-width: 1000px;
             z-index: 1000;
-            padding: 0.8rem 2rem;
+            padding: 1rem 2rem;
             background: var(--bg-glass);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
             border-radius: 100px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.4);
         }
 
-        .nav-logo {
-            font-weight: 700;
-            font-size: 1.1rem;
-            color: var(--text-primary);
-            letter-spacing: -0.01em;
-        }
+        .nav-logo { font-weight: 800; font-size: 1.1rem; letter-spacing: -0.02em; }
+        .nav-links { display: flex; gap: 2rem; }
+        .nav-links a { font-size: 0.9rem; font-weight: 500; color: #ccc; opacity: 0.8; }
+        .nav-links a:hover { color: var(--text-primary); opacity: 1; }
 
-        .nav-links { display: flex; gap: 1.5rem; }
-        
-        .nav-links a {
-            font-size: 0.9rem;
-            font-weight: 600;
-            color: #e5e5e5;
-            position: relative;
-        }
-
-        .nav-links a:hover { color: var(--accent); }
-
-        .hamburger { display: none; cursor: pointer; flex-direction: column; gap: 5px; }
-        .bar { width: 22px; height: 2px; background-color: var(--text-primary); }
+        .hamburger { display: none; cursor: pointer; flex-direction: column; gap: 6px; }
+        .bar { width: 24px; height: 2px; background-color: var(--text-primary); }
 
         /* --- HERO SECTION --- */
         #hero {
-            min-height: 85vh;
+            min-height: 90vh;
             display: flex;
+            flex-direction: column;
             align-items: center;
             justify-content: center;
-            gap: 4rem;
-            padding-top: 80px;
+            text-align: center;
+            padding-top: 120px;
         }
 
-        .hero-content { flex: 1; max-width: 550px; }
-        
+        .hero-img-container {
+            width: 180px; height: 180px; margin: 0 auto 1.5rem;
+            border-radius: 50%; overflow: hidden;
+            box-shadow: 0 0 50px rgba(234, 88, 12, 0.15);
+            border: 2px solid rgba(255,255,255,0.1);
+            animation: float 5s ease-in-out infinite;
+        }
+
+        .hero-name {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+            letter-spacing: -0.02em;
+        }
+
         .hero-label {
-            display: inline-block;
-            background: rgba(234, 88, 12, 0.1);
-            color: var(--accent);
-            padding: 0.4rem 0.8rem;
-            border-radius: 50px;
-            font-size: 0.8rem;
-            font-weight: 600;
-            margin-bottom: 1rem;
-            border: 1px solid rgba(234, 88, 12, 0.2);
+            font-size: 0.85rem; font-weight: 600; color: var(--accent);
+            text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 1.5rem;
         }
 
         .hero-title {
-            font-size: 3.5rem;
-            font-weight: 700;
-            margin-bottom: 0.8rem;
-            line-height: 1.1;
+            font-size: 4rem; font-weight: 800; margin-bottom: 1rem;
+            background: linear-gradient(180deg, #fff 0%, #aaa 100%);
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
         }
 
-        .hero-subtitle {
-            font-size: 1.25rem;
-            color: #ccc;
-            margin-bottom: 1.2rem;
-            font-weight: 400;
+        .hero-subtitle { font-size: 1.4rem; color: #888; font-weight: 400; margin-bottom: 2rem; }
+
+        @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+
+        .btn-main {
+            padding: 1rem 2.5rem; background: var(--text-primary); color: #000;
+            border-radius: 50px; font-weight: 600; font-size: 0.95rem;
         }
+        .btn-main:hover { background: #ddd; transform: translateY(-2px); }
 
-        .hero-desc { margin-bottom: 2rem; max-width: 100%; font-size: 1rem; }
-
-        .btn-group { display: flex; gap: 1rem; }
-        
-        .btn {
-            padding: 0.8rem 1.8rem;
-            border-radius: 50px;
-            font-weight: 600;
-            font-size: 0.9rem;
-            cursor: pointer;
-            border: 1px solid transparent;
-            transition: var(--transition);
-        }
-
-        .btn-primary { background-color: var(--text-primary); color: var(--bg-body); }
-        .btn-primary:hover { background-color: #ccc; transform: translateY(-2px); }
-        
-        .btn-outline { border-color: var(--border); color: var(--text-primary); background: transparent; }
-        .btn-outline:hover { border-color: var(--accent); color: var(--accent); }
-
-        .hero-image-container {
-            flex-shrink: 0;
-            width: 260px; 
-            height: 340px;
-            position: relative;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            opacity: 0; /* Start hidden for animation */
-            animation: fadeInImage 1s ease-out 0.5s forwards, float 6s ease-in-out infinite;
-        }
-
-        @keyframes fadeInImage {
-            to { opacity: 1; }
-        }
-
-        .hero-img-wrapper {
-            width: 100%;
-            height: 100%;
-            background: #1a1a1a;
-            border-radius: var(--radius-lg);
-            overflow: hidden;
-            box-shadow: 0 20px 40px -10px rgba(0,0,0,0.6);
-        }
-
-        .hero-img-wrapper img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            opacity: 0.9;
-            filter: grayscale(10%);
-        }
-
-        @keyframes float {
-            0% { transform: translateY(0px); }
-            50% { transform: translateY(-15px); }
-            100% { transform: translateY(0px); }
-        }
-
-        /* --- PROFILE TEXT (Split Layout) --- */
-        .profile-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            margin-bottom: 4rem;
-            gap: 2rem;
-        }
-
-        .profile-title {
-            flex: 0.4;
-            font-size: 1.5rem;
-            color: var(--text-primary);
-            font-weight: 600;
-        }
-
-        .profile-text {
-            flex: 1;
-            font-size: 1.1rem;
-            line-height: 1.8;
-            color: var(--text-secondary);
-        }
-
-        /* --- TIMELINE (EDUCATION) --- */
-        /* Completely different layout for education */
-        .timeline-section {
-            position: relative;
-            padding-left: 20px;
-        }
-        
-        .timeline-section::before {
-            content: '';
-            position: absolute;
-            left: 0;
-            top: 10px;
-            bottom: 0;
-            width: 2px;
-            background: linear-gradient(to bottom, var(--accent), rgba(234, 88, 12, 0.1));
-        }
-
-        .timeline-item {
-            position: relative;
-            padding-left: 3rem;
-            margin-bottom: 3rem;
-        }
-
-        .timeline-item:last-child {
-            margin-bottom: 0;
-        }
-
+        /* --- EDUCATION (Vertical Timeline) --- */
+        #education { background: linear-gradient(to bottom, #050505, #080808); }
+        .timeline-wrap { border-left: 2px solid rgba(255,255,255,0.1); padding-left: 3rem; margin-left: 1rem; }
+        .timeline-item { position: relative; margin-bottom: 4rem; }
         .timeline-dot {
-            position: absolute;
-            left: -6px;
-            top: 5px;
-            width: 14px;
-            height: 14px;
-            border-radius: 50%;
-            background: var(--bg-body);
-            border: 2px solid var(--accent);
-            box-shadow: 0 0 10px var(--accent-glow);
+            position: absolute; left: -3.6rem; top: 5px; width: 16px; height: 16px;
+            background: var(--bg-body); border: 2px solid var(--accent); border-radius: 50%;
         }
+        .edu-year { font-size: 0.85rem; color: var(--accent); font-weight: 700; margin-bottom: 0.5rem; display: block; }
+        .edu-degree { font-size: 1.5rem; font-weight: 700; margin-bottom: 0.5rem; color: #fff; }
+        .edu-school { font-size: 1.1rem; color: #999; margin-bottom: 1rem; }
 
-        .timeline-content h4 {
-            font-size: 1.3rem;
-            color: var(--text-primary);
-            margin-bottom: 0.3rem;
-        }
-
-        .timeline-content .institution {
-            font-size: 1rem;
-            color: var(--accent);
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-            display: block;
-        }
-
-        .timeline-content .time-period {
-            font-size: 0.85rem;
-            color: var(--text-muted);
-            margin-bottom: 0.8rem;
-            display: block;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-        }
-
-        .timeline-content p {
-            font-size: 0.95rem;
-            max-width: 600px;
-        }
-
-        /* --- GRIDS & CARDS --- */
-        .card-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 1.5rem;
-        }
-
-        .card {
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: var(--radius-md);
-            padding: 1.8rem;
-            transition: var(--transition);
+        /* --- EXPERIENCE (Editorial List Layout) --- */
+        #experience { border-top: 1px solid var(--border); }
+        
+        .exp-row {
             display: flex;
-            flex-direction: column;
-            justify-content: flex-start;
-        }
-
-        .card:hover {
-            border-color: var(--accent);
-            transform: translateY(-4px);
-            background: #141414;
-        }
-
-        .card-header {
-            display: flex;
-            justify-content: space-between;
             align-items: flex-start;
-            margin-bottom: 0.5rem;
+            padding: 3rem 0;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+            transition: var(--transition);
         }
 
-        .card-date {
-            font-size: 0.75rem;
-            color: var(--accent);
-            font-weight: 700;
-            text-transform: uppercase;
-            white-space: nowrap;
+        .exp-row:hover { background: rgba(255,255,255,0.02); padding-left: 1rem; padding-right: 1rem; border-radius: 8px; }
+
+        .exp-date {
+            flex: 0 0 25%;
+            font-size: 0.9rem; color: #666; font-weight: 600;
+            padding-right: 2rem;
         }
 
-        .card-title { font-size: 1.15rem; font-weight: 700; color: var(--text-primary); margin-bottom: 0.2rem; }
-        .card-subtitle { font-size: 0.9rem; color: #888; margin-bottom: 0.8rem; font-weight: 500; font-style: italic;}
-        .card-desc { font-size: 0.9rem; color: #b0b0b0; line-height: 1.5; }
+        .exp-content { flex: 1; }
+        .exp-role { font-size: 1.4rem; font-weight: 600; margin-bottom: 0.3rem; color: #fff; }
+        .exp-company { font-size: 1rem; color: var(--accent); margin-bottom: 1rem; display: block; }
+        .exp-desc { font-size: 1rem; color: var(--text-secondary); line-height: 1.7; }
 
-        /* --- TAGS & LISTS --- */
-        .project-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 1rem; }
-        .tag {
-            font-size: 0.7rem; padding: 0.2rem 0.6rem; border-radius: 4px;
-            background: rgba(255,255,255,0.08); color: #ddd;
+        /* --- PROJECTS (Bento Grid Layout) --- */
+        #projects { background: #080808; }
+        .bento-grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem;
         }
 
-        .compact-list { margin-top: 0.5rem; }
-        .compact-list li {
-            position: relative; padding-left: 1rem; font-size: 0.9rem; color: #a3a3a3; margin-bottom: 0.3rem;
-        }
-        .compact-list li::before {
-            content: "›"; color: var(--accent); position: absolute; left: 0; font-weight: bold;
+        .project-card {
+            background: #111; padding: 2.5rem; border-radius: 24px;
+            border: 1px solid #222; position: relative; overflow: hidden;
+            transition: var(--transition);
         }
 
-        /* --- SKILLS & INTERESTS --- */
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1.5rem;
+        .project-card:hover { border-color: var(--accent); transform: translateY(-5px); box-shadow: 0 10px 40px -10px rgba(0,0,0,0.8); }
+        .project-card::before {
+            content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 4px;
+            background: var(--accent); transform: scaleX(0); transform-origin: left; transition: transform 0.3s ease;
+        }
+        .project-card:hover::before { transform: scaleX(1); }
+
+        .proj-title { font-size: 1.4rem; font-weight: 700; margin-bottom: 0.5rem; }
+        .proj-tag { display: inline-block; font-size: 0.75rem; padding: 4px 10px; border: 1px solid #333; border-radius: 20px; color: #888; margin-bottom: 1.5rem; }
+
+        /* --- LEADERSHIP (Dashboard/Icon Style) --- */
+        .leadership-grid {
+            display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem;
         }
 
-        .skill-group h3 { font-size: 1rem; color: var(--accent); margin-bottom: 0.8rem; text-transform: uppercase; letter-spacing: 0.05em; }
-        .skill-item { display: inline-block; font-size: 0.85rem; margin-right: 0.5rem; margin-bottom: 0.5rem; padding: 0.2rem 0.6rem; border: 1px solid #333; border-radius: 4px; color: #ccc; }
-
-        /* --- FOOTER --- */
-        footer {
-            margin-top: 2rem;
-            border-top: 1px solid var(--border);
-            padding: 3rem 1.5rem;
-            text-align: center;
-            background: #0a0a0a;
+        .lead-item {
+            background: linear-gradient(135deg, #111, #0a0a0a);
+            padding: 2rem; border-radius: 16px; border: 1px solid #1a1a1a;
+            display: flex; align-items: flex-start; gap: 1.5rem;
         }
-        .footer-links a { margin: 0 1rem; color: #888; font-size: 0.95rem; }
-        .footer-links a:hover { color: var(--accent); }
+
+        .lead-icon {
+            font-size: 1.5rem; color: var(--accent); font-weight: bold;
+            background: rgba(234, 88, 12, 0.1); width: 50px; height: 50px;
+            display: flex; align-items: center; justify-content: center; border-radius: 12px;
+        }
+
+        /* --- SKILLS (Pillars Layout) --- */
+        #skills { border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+        .skills-container {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 3rem;
+        }
+
+        .skill-col h3 {
+            font-size: 1.1rem; color: #fff; margin-bottom: 1.5rem; 
+            padding-bottom: 1rem; border-bottom: 1px solid var(--accent);
+        }
+
+        .skill-col li { margin-bottom: 0.8rem; font-size: 0.95rem; color: #999; }
+        .skill-col li::before { content: "•"; color: var(--accent); margin-right: 8px; }
+
+        /* --- CONTACT (Big Footer) --- */
+        #contact {
+            min-height: 70vh; display: flex; flex-direction: column;
+            justify-content: center; align-items: center; text-align: center;
+            background: radial-gradient(circle at center, #111 0%, #050505 70%);
+        }
+
+        .contact-eyebrow { color: var(--accent); font-weight: 700; letter-spacing: 0.1em; margin-bottom: 1rem; }
+        .contact-heading { font-size: 4rem; font-weight: 800; line-height: 1; margin-bottom: 2rem; color: #fff; }
+        .contact-links { display: flex; gap: 2rem; margin-top: 2rem; flex-wrap: wrap; justify-content: center; }
+        
+        .contact-btn {
+            font-size: 1.2rem; padding: 1rem 2rem; border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 12px; transition: var(--transition); color: #fff;
+        }
+        .contact-btn:hover { background: #fff; color: #000; border-color: #fff; }
+
+        .footer-note { margin-top: 5rem; font-size: 0.8rem; color: #444; }
+
+        /* --- ANIMATIONS --- */
+        .reveal { opacity: 0; transform: translateY(30px); transition: all 0.8s ease; }
+        .reveal.active { opacity: 1; transform: translateY(0); }
 
         /* --- RESPONSIVE --- */
-        @media (max-width: 900px) {
-            #hero { flex-direction: column-reverse; text-align: center; gap: 2rem; padding-top: 100px; }
-            .hero-image-container { width: 220px; height: 280px; margin: 0 auto; }
-            .hero-title { font-size: 2.5rem; }
-            .btn-group { justify-content: center; }
-            .profile-container { flex-direction: column; gap: 1rem; }
+        @media (max-width: 768px) {
+            .hero-title { font-size: 2.8rem; }
+            .exp-row { flex-direction: column; }
+            .exp-date { margin-bottom: 0.5rem; }
+            .leadership-grid { grid-template-columns: 1fr; }
+            .contact-heading { font-size: 2.5rem; }
             
             .hamburger { display: flex; }
             .nav-links {
                 position: absolute; top: 100%; left: 0; width: 100%;
-                background: #1a1a1a; flex-direction: column; padding: 2rem;
+                background: #111; flex-direction: column; padding: 2rem; text-align: center;
                 transform: translateY(-20px); opacity: 0; pointer-events: none;
-                transition: var(--transition); border-radius: 12px; border: 1px solid #333;
+                transition: var(--transition); border-radius: 20px; border: 1px solid #333;
             }
             .nav-links.mobile-active { opacity: 1; pointer-events: all; transform: translateY(10px); }
         }
@@ -431,250 +276,254 @@
 
     <!-- NAVIGATION -->
     <nav>
-        <a href="#" class="nav-logo">SPARSH AGGARWAL</a>
+        <div class="nav-logo">SPARSH AGGARWAL</div>
         <div class="hamburger" id="hamburger">
             <div class="bar"></div>
             <div class="bar"></div>
             <div class="bar"></div>
         </div>
         <ul class="nav-links" id="nav-links">
-            <li><a href="#about">About</a></li>
             <li><a href="#education">Education</a></li>
             <li><a href="#experience">Experience</a></li>
             <li><a href="#projects">Projects</a></li>
+            <li><a href="#leadership">Leadership</a></li>
             <li><a href="#skills">Skills</a></li>
+            <li><a href="#contact">Contact</a></li>
         </ul>
     </nav>
 
     <!-- HERO SECTION -->
     <section id="hero">
-        <div class="hero-content">
-            <span class="hero-label hero-animate delay-1">Studet @ IIM Bangalore</span>
-            <h1 class="hero-title hero-animate delay-2">Business Strategy & <br>Digital Innovation.</h1>
-            <h3 class="hero-subtitle hero-animate delay-3">Strategist • Marketer • Operator</h3>
-            <p class="hero-desc hero-animate delay-4">
-                Analytical BBA student blending <strong>financial acumen</strong> with <strong>creative strategy</strong>. 
-                Experienced in market research, entrepreneurial operations, and building structured solutions for business growth.
-            </p>
-            <div class="btn-group hero-animate delay-4">
-                <a href="#contact" class="btn btn-primary">Contact Me</a>
-                <a href="#projects" class="btn btn-outline">My Work</a>
+        <div class="hero-img-container">
+            <!-- Profile Placeholder -->
+            <img src="https://ui-avatars.com/api/?name=Sparsh+Aggarwal&background=111&color=ea580c&size=256&font-size=0.33" alt="Sparsh Profile">
+        </div>
+        
+        <!-- Name Added Below Image -->
+        <h2 class="hero-name reveal">Sparsh Aggarwal</h2>
+        
+        <div class="hero-label reveal">BBA @ IIM Bangalore</div>
+        <h1 class="hero-title reveal">Strategy.<br>Marketing.<br>Operations.</h1>
+        <p class="hero-subtitle reveal">Bridging financial acumen with creative strategy.</p>
+        <a href="#projects" class="btn-main reveal">View Portfolio</a>
+    </section>
+
+    <!-- EDUCATION (Matches Nav Title) -->
+    <section id="education">
+        <div class="section-title reveal">Education</div>
+        
+        <div style="display: grid; grid-template-columns: 1fr 1.5fr; gap: 4rem; align-items: start;">
+            <!-- Left: About Text (Content from CV) -->
+            <div class="reveal">
+                <h3 style="color: #fff; margin-bottom: 1rem;">About Me</h3>
+                <p style="color: #a3a3a3; line-height: 1.8;">
+                    Strategic and analytical BBA student at IIM Bangalore with experience across marketing strategy, entrepreneurship, content research, and business operations. Skilled in market research, social media strategy, and structured problem-solving through academic projects and internships. Strong communicator with leadership experience in student representation and cross-functional coordination.
+                </p>
+            </div>
+
+            <!-- Right: Timeline -->
+            <div class="timeline-wrap reveal">
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <span class="edu-year">Sep 2024 - Sep 2027</span>
+                    <div class="edu-degree">BBA - Digital Business & Entrepreneurship</div>
+                    <div class="edu-school">Indian Institute of Management Bangalore (IIMB)</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <span class="edu-year">Diploma</span>
+                    <div class="edu-degree">Intl. Affairs & Diplomacy</div>
+                    <div class="edu-school">Indian Institute of Governance and Leadership (IIGL)</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <span class="edu-year">Apr 2020 - Mar 2023</span>
+                    <div class="edu-degree">Higher Secondary</div>
+                    <div class="edu-school">DPS Ghaziabad (Commerce + Maths)</div>
+                    <p style="color:#666; font-size: 0.9rem; margin-top: 0.5rem;">Class XII: 75% | Class X: 85%</p>
+                </div>
             </div>
         </div>
         
-        <div class="hero-image-container">
-            <div class="hero-img-wrapper">
-                <!-- Replace with your photo -->
-                <img src="IMG-20250824-WA0097~3.jpg" alt="Sparsh Profile">
-            </div>
-        </div>
+        <style>
+            @media(max-width: 900px) {
+                #education > div { grid-template-columns: 1fr !important; }
+            }
+        </style>
     </section>
 
-    <!-- ABOUT PROFILE (Split Layout) -->
-    <section id="about" class="reveal">
-        <div class="profile-container">
-            <div class="profile-title">Background Overview</div>
-            <div class="profile-text" I am a BBA student in Digital Business & Entrepreneurship at <strong>IIM Bangalore</strong>. My expertise lies in bridging the gap between data-driven operations and consumer-facing marketing strategies. I thrive in high-stakes environments, from managing crisis protocols for brands to optimizing family business workflows.
-            </div>
-        </div>
-    </section>
-
-    <!-- EDUCATION (New Vertical Timeline Layout) -->
-    <section id="education" class="reveal">
-        <h2>Education</h2>
-        <div class="timeline-section">
-            <!-- Item 1 -->
-            <div class="timeline-item">
-                <div class="timeline-dot"></div>
-                <div class="timeline-content">
-                    <h4>BBA - Digital Business & Entrepreneurship</h4>
-                    <span class="institution">IIM Bangalore</span>
-                    <span class="time-period">2024 - 2027</span>
-                    <p>Focusing on strategic frameworks, digital markets, and new venture creation. Deep diving into financial accounting and operations support.</p>
-                </div>
-            </div>
-
-            <!-- Item 2 -->
-            <div class="timeline-item">
-                <div class="timeline-dot"></div>
-                <div class="timeline-content">
-                    <h4>Diploma in International Affairs & Diplomacy</h4>
-                    <span class="institution">Indian Institute of Governance and Leadership (IIGL)</span>
-                    <span class="time-period">Completed</span>
-                    <p>Gained insights into global governance structures and leadership dynamics.</p>
-                </div>
-            </div>
-
-            <!-- Item 3 -->
-            <div class="timeline-item">
-                <div class="timeline-dot"></div>
-                <div class="timeline-content">
-                    <h4>Higher Secondary (Commerce + Maths)</h4>
-                    <span class="institution">DPS Ghaziabad</span>
-                    <span class="time-period">2020 - 2023</span>
-                    <p>Class XII: 75% | Class X: 85%. Active participation in Football and Chess competitions.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- EXPERIENCE -->
-    <section id="experience" class="reveal">
-        <h2>Experience</h2>
-        <div class="card-grid">
-            <div class="card">
-                <div class="card-header">
-                    <span class="card-date">Oct 2025 - Apr 2026</span>
-                </div>
-                <h4 class="card-title">Content Research Intern</h4>
-                <div class="card-subtitle">Social Media Newsroom</div>
-                <p class="card-desc">
-                    Spearheaded content & trend research across digital platforms. Verified information validity and ideated content topics aligned with current affairs, directly improving engagement metrics and content accuracy.
-                </p>
-            </div>
-
-            <div class="card">
-                <div class="card-header">
-                    <span class="card-date">2024</span>
-                </div>
-                <h4 class="card-title">Business Operations Assistant</h4>
-                <div class="card-subtitle">Family Business</div>
-                <p class="card-desc">
-                    Managed vendor coordination and client servicing. Conducted market research and financial analysis to identify inefficiencies, implementing documentation systems that improved workflow efficiency.
-                </p>
-            </div>
-
-            <div class="card">
-                <div class="card-header">
-                    <span class="card-date">2025</span>
-                </div>
-                <h4 class="card-title">Freelance Web Developer</h4>
-                <div class="card-subtitle">Academic & Local Projects</div>
-                <p class="card-desc">
-                    Developed 20+ responsive websites. Handled layout logic, styling (HTML/CSS), and brand positioning to create distinct digital identities for local businesses.
-                </p>
-            </div>
-        </div>
-    </section>
-
-    <!-- PROJECTS -->
-    <section id="projects" class="reveal">
-        <h2>Key Projects</h2>
-        <div class="card-grid">
-            <div class="card">
-                <h4 class="card-title">Blue Tokai Brand Strategy</h4>
-                <div class="card-subtitle">Marketing Strategy</div>
-                <p class="card-desc">
-                    End-to-end social media strategy for a specialty coffee brand. Conducted STP analysis and competitor benchmarking. Delivered a monthly content calendar, creator collaboration framework, and crisis management protocols.
-                </p>
-                <div class="project-tags">
-                    <span class="tag">Strategy</span>
-                    <span class="tag">Crisis Management</span>
-                </div>
-            </div>
-
-            <div class="card">
-                <h4 class="card-title">The Outreach Project</h4>
-                <div class="card-subtitle">Client Acquisition</div>
-                <p class="card-desc">
-                    Executed a high-intensity acquisition strategy for three local businesses. Acquired one paying client per business within a <strong>4-hour execution window</strong>, generating <strong>₹3,000 revenue</strong> through direct outreach.
-                </p>
-                <div class="project-tags">
-                    <span class="tag">Sales</span>
-                    <span class="tag">Revenue: ₹3k</span>
-                </div>
-            </div>
-
-            <div class="card">
-                <h4 class="card-title">Entrepreneurial Hypothesis</h4>
-                <div class="card-subtitle">Business Model Validation</div>
-                <p class="card-desc">
-                    Iterated Business Model Canvases (BMC) based on market hypotheses. Conducted customer interviews to refine assumptions and created a pitch deck focused on value proposition and revenue logic.
-                </p>
-                <div class="project-tags">
-                    <span class="tag">BMC</span>
-                    <span class="tag">Pitch Deck</span>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- LEADERSHIP & ACHIEVEMENTS -->
-    <section id="leadership" class="reveal">
-        <h2>Leadership & Achievements</h2>
-        <div class="card-grid">
-            <div class="card">
-                <h4 class="card-title">Leadership Roles</h4>
-                <ul class="compact-list">
-                    <li><strong>Zonal Representative (2025-26):</strong> Bridge between students and IIMB admin; managed escalations & schedules.</li>
-                    <li><strong>Media Cell Core (2025):</strong> Managed event photography & social content.</li>
-                    <li><strong>Partnership Team (2025):</strong> Assisted in sponsor outreach & pitch deck creation.</li>
-                    <li><strong>School Vice-Captain (2021-23):</strong> Coordinated 400+ students & led discipline.</li>
-                </ul>
-            </div>
-
-            <div class="card">
-                <h4 class="card-title">Achievements & Interests</h4>
-                <ul class="compact-list">
-                    <li><strong>Competitions:</strong> Awarded in Football, Chess, and Calligraphy.</li>
-                    <li><strong>MUN:</strong> Represented school in Model United Nations.</li>
-                    <li><strong>Creative Interests:</strong> Photography & Editing, Presentation Design, Painting & Sketching.</li>
-                    <li><strong>Other Interests:</strong> Cooking, Strategic Gaming.</li>
-                </ul>
-            </div>
-        </div>
-    </section>
-
-    <!-- SKILLS -->
-    <section id="skills" class="reveal">
-        <h2>Core Competencies</h2>
-        <div class="card" style="cursor: default; transform: none;">
-            <div class="skills-grid">
-                <div class="skill-group">
-                    <h3>Business & Strategy</h3>
-                    <span class="skill-item">Market Research</span>
-                    <span class="skill-item">BMC</span>
-                    <span class="skill-item">Operations</span>
-                    <span class="skill-item">Costing</span>
-                </div>
-                <div class="skill-group">
-                    <h3>Marketing</h3>
-                    <span class="skill-item">Social Media Strategy</span>
-                    <span class="skill-item">Campaign Planning</span>
-                    <span class="skill-item">Audience Analysis</span>
-                </div>
-                <div class="skill-group">
-                    <h3>Finance & Analytics</h3>
-                    <span class="skill-item">Financial Accounting</span>
-                    <span class="skill-item">Cost Sheets</span>
-                    <span class="skill-item">Analysis</span>
-                </div>
-                <div class="skill-group">
-                    <h3>Digital Tools</h3>
-                    <span class="skill-item">Excel/PowerPoint</span>
-                    <span class="skill-item">Notion</span>
-                    <span class="skill-item">Canva</span>
-                    <span class="skill-item">HTML/CSS</span>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- FOOTER -->
-    <footer id="contact">
-        <h2 style="font-size: 1.8rem; margin-bottom: 1rem; border: none;">Let's Connect</h2>
-        <p style="margin-bottom: 2rem;">Open to internships in Strategy, Marketing, and Operations.</p>
+    <!-- EXPERIENCE (Matches Nav Title) -->
+    <section id="experience">
+        <div class="section-title reveal">Experience</div>
         
-        <div class="footer-links">
-            <a href="mailto:sparsh.aggarwal24@iimb.ac.in">sparsh.aggarwal24@iimb.ac.in</a>
-            <a href="tel:+919811631672">+91 9811631672</a>
-            <a href="https://linkedin.com" target="_blank">LinkedIn</a>
+        <div class="exp-row reveal">
+            <div class="exp-date">Oct 2025 - Apr 2026</div>
+            <div class="exp-content">
+                <div class="exp-role">Content Research Intern</div>
+                <span class="exp-company">Social Media Newsroom</span>
+                <p class="exp-desc">
+                    Conducted content and trend research for social media news coverage across digital platforms. Identified relevant topics, verified information, and supported content ideation aligned with current affairs. Assisted the content team with research inputs to improve relevance, accuracy, and engagement.
+                </p>
+            </div>
         </div>
-        <p style="margin-top: 2rem; font-size: 0.8rem; color: #444;">&copy; 2026 Sparsh Aggarwal. Delhi NCR.</p>
-    </footer>
+
+        <div class="exp-row reveal">
+            <div class="exp-date">2024</div>
+            <div class="exp-content">
+                <div class="exp-role">Business Operations Assistant</div>
+                <span class="exp-company">Family Business</span>
+                <p class="exp-desc">
+                    Supported day-to-day business operations including vendor coordination, order management, and client servicing. Conducted market research and basic financial analysis to identify demand patterns and operational inefficiencies. Improved workflow efficiency through structured documentation.
+                </p>
+            </div>
+        </div>
+
+        <div class="exp-row reveal">
+            <div class="exp-date">2025</div>
+            <div class="exp-content">
+                <div class="exp-role">Web Development Assistance</div>
+                <span class="exp-company">Freelance & Academic Projects</span>
+                <p class="exp-desc">
+                    Assisted in developing 20+ responsive websites for local businesses and academic projects. Worked on layouts, styling, and responsiveness using HTML, CSS, and basic JavaScript. Contributed to visual identity and page structure aligned with brand positioning.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROJECTS (Matches Nav Title) -->
+    <section id="projects">
+        <div class="section-title reveal">Projects</div>
+        
+        <div class="bento-grid">
+            <div class="project-card reveal">
+                <div class="proj-title">Blue Tokai Brand Strategy</div>
+                <div class="proj-tag">Marketing Strategy</div>
+                <p style="color: #999; font-size: 0.95rem;">
+                    Developed an end-to-end social media marketing strategy. Conducted audience analysis, STP segmentation, and competitor benchmarking. Designed content strategies, a monthly calendar, creator collaboration strategy, and crisis management protocols.
+                </p>
+            </div>
+
+            <div class="project-card reveal">
+                <div class="proj-title">The Outreach Project</div>
+                <div class="proj-tag">Client Acquisition Strategy</div>
+                <p style="color: #999; font-size: 0.95rem;">
+                    Designed and executed a short-term client acquisition strategy. Acquired one paying client per business within a <strong style="color: #fff;">4-hour execution window</strong>, generating <strong style="color: #fff;">₹3,000 revenue</strong> and developing a repeatable framework.
+                </p>
+            </div>
+
+            <div class="project-card reveal">
+                <div class="proj-title">Entrepreneurial Hypothesis</div>
+                <div class="proj-tag">BMC Validation</div>
+                <p style="color: #999; font-size: 0.95rem;">
+                    Developed and iterated Business Model Canvases based on market hypotheses. Conducted customer interviews and refined assumptions using qualitative insights. Contributed to pitch deck creation focusing on value proposition and revenue logic.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- LEADERSHIP (Matches Nav Title) -->
+    <section id="leadership">
+        <div class="section-title reveal">Leadership</div>
+        
+        <div class="leadership-grid">
+            <div class="lead-item reveal">
+                <div class="lead-icon">ZR</div>
+                <div>
+                    <h4 style="color: #fff; margin-bottom: 0.5rem;">Zonal Representative</h4>
+                    <p style="font-size: 0.9rem; color: #888;">IIM Bangalore (2025-2026). Represented students at the zonal level, acted as bridge to administration, and managed time-sensitive escalations.</p>
+                </div>
+            </div>
+            
+            <div class="lead-item reveal">
+                <div class="lead-icon">MC</div>
+                <div>
+                    <h4 style="color: #fff; margin-bottom: 0.5rem;">Media Cell</h4>
+                    <p style="font-size: 0.9rem; color: #888;">IIM Bangalore (Apr 2025-Dec 2025). Managed event photography, content creation, and social media updates.</p>
+                </div>
+            </div>
+
+            <div class="lead-item reveal">
+                <div class="lead-icon">PT</div>
+                <div>
+                    <h4 style="color: #fff; margin-bottom: 0.5rem;">Extended Partnership Team</h4>
+                    <p style="font-size: 0.9rem; color: #888;">IIM Bangalore (Apr 2025-July 2025). Assisted in sponsor outreach and creation of short pitch decks and proposals.</p>
+                </div>
+            </div>
+
+            <div class="lead-item reveal">
+                <div class="lead-icon">SC</div>
+                <div>
+                    <h4 style="color: #fff; margin-bottom: 0.5rem;">School Vice-Captain & Proctor</h4>
+                    <p style="font-size: 0.9rem; color: #888;">DPS Ghaziabad (2021-2023). Coordinated 400+ students, managed discipline, and led school events.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SKILLS (Matches Nav Title) -->
+    <section id="skills">
+        <div class="section-title reveal">Skills</div>
+        <div class="skills-container reveal">
+            <div class="skill-col">
+                <h3>Business & Strategy</h3>
+                <ul>
+                    <li>Market Research</li>
+                    <li>Business Model Canvas (BMC)</li>
+                    <li>Operations Support</li>
+                    <li>Costing</li>
+                </ul>
+            </div>
+            <div class="skill-col">
+                <h3>Marketing & Content</h3>
+                <ul>
+                    <li>Social Media Strategy</li>
+                    <li>Campaign Planning</li>
+                    <li>Audience Analysis</li>
+                    <li>Content Research</li>
+                </ul>
+            </div>
+            <div class="skill-col">
+                <h3>Finance & Tools</h3>
+                <ul>
+                    <li>Financial Accounting</li>
+                    <li>Excel, PowerPoint, Canva</li>
+                    <li>Notion, Google Workspace</li>
+                    <li>HTML / CSS</li>
+                </ul>
+            </div>
+            <div class="skill-col">
+                <h3>Interests & Achievements</h3>
+                <ul>
+                    <li>MUN & Calligraphy</li>
+                    <li>Chess & Football</li>
+                    <li>Photography & Editing</li>
+                    <li>Cooking & Painting</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT (Matches Nav Title) -->
+    <section id="contact">
+        <div class="reveal">
+            <div class="contact-eyebrow">CONTACT</div>
+            <h2 class="contact-heading">Let's work<br>together.</h2>
+            <p style="color: #888; margin-bottom: 2rem;">Delhi NCR | Open to internships and projects.</p>
+            
+            <div class="contact-links">
+                <a href="mailto:sparsh.aggarwal24@iimb.ac.in" class="contact-btn">sparsh.aggarwal24@iimb.ac.in</a>
+                <a href="https://linkedin.com" target="_blank" class="contact-btn">LinkedIn</a>
+                <a href="tel:+919811631672" class="contact-btn">+91 9811631672</a>
+            </div>
+
+            <div class="footer-note">
+                &copy; 2026 Sparsh Aggarwal. IIM Bangalore.
+            </div>
+        </div>
+    </section>
 
     <script>
-        // Mobile Menu Logic
+        // --- MOBILE MENU ---
         const hamburger = document.getElementById('hamburger');
         const navLinks = document.getElementById('nav-links');
         
@@ -689,37 +538,16 @@
             });
         });
 
-        // Sticky Nav Shadow
-        window.addEventListener('scroll', () => {
-            const nav = document.querySelector('nav');
-            if (window.scrollY > 50) {
-                nav.style.boxShadow = "0 10px 30px rgba(0,0,0,0.5)";
-                nav.style.background = "rgba(10, 10, 10, 0.95)";
-            } else {
-                nav.style.boxShadow = "none";
-                nav.style.background = "rgba(20, 20, 20, 0.85)";
-            }
-        });
-
-        // SCROLL REVEAL ANIMATION OBSERVER
-        const observerOptions = {
-            root: null,
-            rootMargin: '0px',
-            threshold: 0.15
-        };
-
-        const observer = new IntersectionObserver((entries, observer) => {
+        // --- SCROLL ANIMATION ---
+        const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('active');
-                    observer.unobserve(entry.target); // Only animate once
                 }
             });
-        }, observerOptions);
+        }, { threshold: 0.1 });
 
-        document.querySelectorAll('.reveal').forEach(el => {
-            observer.observe(el);
-        });
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
     </script>
 </body>
 </html>
