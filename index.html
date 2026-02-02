@@ -62,7 +62,7 @@
             background: linear-gradient(to right, #fff, #888);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            text-transform: capitalize; /* Ensure proper casing matches nav */
+            text-transform: capitalize;
         }
 
         /* --- NAVIGATION (Translucent) --- */
@@ -97,16 +97,25 @@
         #hero {
             min-height: 90vh;
             display: flex;
-            flex-direction: column;
+            flex-direction: row; /* Changed to row */
             align-items: center;
-            justify-content: center;
-            text-align: center;
+            justify-content: space-between;
+            text-align: left; /* Aligned left */
             padding-top: 120px;
+            gap: 2rem;
+        }
+
+        .hero-text-content {
+            flex: 1;
+            max-width: 600px;
         }
 
         .hero-img-container {
-            width: 180px; height: 180px; margin: 0 auto 1.5rem;
-            border-radius: 50%; overflow: hidden;
+            width: 280px; /* Slightly larger for side layout */
+            height: 280px; 
+            flex-shrink: 0;
+            border-radius: 50%; 
+            overflow: hidden;
             box-shadow: 0 0 50px rgba(234, 88, 12, 0.15);
             border: 2px solid rgba(255,255,255,0.1);
             animation: float 5s ease-in-out infinite;
@@ -138,6 +147,7 @@
         .btn-main {
             padding: 1rem 2.5rem; background: var(--text-primary); color: #000;
             border-radius: 50px; font-weight: 600; font-size: 0.95rem;
+            display: inline-block;
         }
         .btn-main:hover { background: #ddd; transform: translateY(-2px); }
 
@@ -153,18 +163,24 @@
         .edu-degree { font-size: 1.5rem; font-weight: 700; margin-bottom: 0.5rem; color: #fff; }
         .edu-school { font-size: 1.1rem; color: #999; margin-bottom: 1rem; }
 
-        /* --- EXPERIENCE (Editorial List Layout) --- */
+        /* --- EXPERIENCE (Editorial List Layout - Fixed Hover) --- */
         #experience { border-top: 1px solid var(--border); }
         
         .exp-row {
             display: flex;
             align-items: flex-start;
-            padding: 3rem 0;
+            padding: 3rem 1.5rem; 
+            margin: 0 -1.5rem;
+            width: calc(100% + 3rem);
             border-bottom: 1px solid rgba(255,255,255,0.05);
             transition: var(--transition);
+            border-radius: 8px;
         }
 
-        .exp-row:hover { background: rgba(255,255,255,0.02); padding-left: 1rem; padding-right: 1rem; border-radius: 8px; }
+        .exp-row:hover { 
+            background: rgba(255,255,255,0.02); 
+            border-color: transparent;
+        }
 
         .exp-date {
             flex: 0 0 25%;
@@ -190,11 +206,6 @@
         }
 
         .project-card:hover { border-color: var(--accent); transform: translateY(-5px); box-shadow: 0 10px 40px -10px rgba(0,0,0,0.8); }
-        .project-card::before {
-            content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 4px;
-            background: var(--accent); transform: scaleX(0); transform-origin: left; transition: transform 0.3s ease;
-        }
-        .project-card:hover::before { transform: scaleX(1); }
 
         .proj-title { font-size: 1.4rem; font-weight: 700; margin-bottom: 0.5rem; }
         .proj-tag { display: inline-block; font-size: 0.75rem; padding: 4px 10px; border: 1px solid #333; border-radius: 20px; color: #888; margin-bottom: 1.5rem; }
@@ -254,9 +265,24 @@
         .reveal.active { opacity: 1; transform: translateY(0); }
 
         /* --- RESPONSIVE --- */
-        @media (max-width: 768px) {
+        @media (max-width: 900px) {
+            #hero { 
+                flex-direction: column-reverse; /* Text bottom, Image top */
+                text-align: center;
+                justify-content: center;
+            }
+            .hero-text-content {
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+            .hero-img-container {
+                width: 220px;
+                height: 220px;
+            }
             .hero-title { font-size: 2.8rem; }
-            .exp-row { flex-direction: column; }
+            .exp-row { flex-direction: column; width: 100%; margin: 0; padding: 2rem 1rem; }
             .exp-date { margin-bottom: 0.5rem; }
             .leadership-grid { grid-template-columns: 1fr; }
             .contact-heading { font-size: 2.5rem; }
@@ -283,6 +309,7 @@
             <div class="bar"></div>
         </div>
         <ul class="nav-links" id="nav-links">
+            <li><a href="#about">About</a></li>
             <li><a href="#education">Education</a></li>
             <li><a href="#experience">Experience</a></li>
             <li><a href="#projects">Projects</a></li>
@@ -294,65 +321,60 @@
 
     <!-- HERO SECTION -->
     <section id="hero">
+        <!-- LEFT: Text Content -->
+        <div class="hero-text-content">
+            <h2 class="hero-name reveal">Sparsh Aggarwal</h2>
+            <div class="hero-label reveal">BBA @ IIM Bangalore</div>
+            <h1 class="hero-title reveal">Strategy.<br>Marketing.<br>Operations.</h1>
+            <p class="hero-subtitle reveal">Bridging financial acumen with creative strategy.</p>
+            <a href="#projects" class="btn-main reveal">View Portfolio</a>
+        </div>
+
+        <!-- RIGHT: Image -->
         <div class="hero-img-container">
             <!-- Profile Placeholder -->
-            <img src="https://ui-avatars.com/api/?name=Sparsh+Aggarwal&background=111&color=ea580c&size=256&font-size=0.33" alt="Sparsh Profile">
+            <img src="https://ui-avatars.com/api/?name=Sparsh+Aggarwal&background=111&color=ea580c&size=512&font-size=0.33" alt="Sparsh Profile">
         </div>
-        
-        <!-- Name Added Below Image -->
-        <h2 class="hero-name reveal">Sparsh Aggarwal</h2>
-        
-        <div class="hero-label reveal">BBA @ IIM Bangalore</div>
-        <h1 class="hero-title reveal">Strategy.<br>Marketing.<br>Operations.</h1>
-        <p class="hero-subtitle reveal">Bridging financial acumen with creative strategy.</p>
-        <a href="#projects" class="btn-main reveal">View Portfolio</a>
     </section>
 
-    <!-- EDUCATION (Matches Nav Title) -->
+    <!-- ABOUT SECTION -->
+    <section id="about">
+        <div class="section-title reveal">About Me</div>
+        <div class="reveal">
+            <p style="color: #a3a3a3; line-height: 1.8; font-size: 1.1rem; max-width: 800px;">
+                Strategic and analytical BBA student at IIM Bangalore with experience across marketing strategy, entrepreneurship, content research, and business operations. Skilled in market research, social media strategy, and structured problem-solving through academic projects and internships. Strong communicator with leadership experience in student representation and cross-functional coordination.
+            </p>
+        </div>
+    </section>
+
+    <!-- EDUCATION SECTION -->
     <section id="education">
         <div class="section-title reveal">Education</div>
         
-        <div style="display: grid; grid-template-columns: 1fr 1.5fr; gap: 4rem; align-items: start;">
-            <!-- Left: About Text (Content from CV) -->
-            <div class="reveal">
-                <h3 style="color: #fff; margin-bottom: 1rem;">About Me</h3>
-                <p style="color: #a3a3a3; line-height: 1.8;">
-                    Strategic and analytical BBA student at IIM Bangalore with experience across marketing strategy, entrepreneurship, content research, and business operations. Skilled in market research, social media strategy, and structured problem-solving through academic projects and internships. Strong communicator with leadership experience in student representation and cross-functional coordination.
-                </p>
+        <div class="timeline-wrap reveal">
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <span class="edu-year">Sep 2024 - Sep 2027</span>
+                <div class="edu-degree">BBA - Digital Business & Entrepreneurship</div>
+                <div class="edu-school">Indian Institute of Management Bangalore (IIMB)</div>
             </div>
-
-            <!-- Right: Timeline -->
-            <div class="timeline-wrap reveal">
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <span class="edu-year">Sep 2024 - Sep 2027</span>
-                    <div class="edu-degree">BBA - Digital Business & Entrepreneurship</div>
-                    <div class="edu-school">Indian Institute of Management Bangalore (IIMB)</div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <span class="edu-year">Diploma</span>
-                    <div class="edu-degree">Intl. Affairs & Diplomacy</div>
-                    <div class="edu-school">Indian Institute of Governance and Leadership (IIGL)</div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <span class="edu-year">Apr 2020 - Mar 2023</span>
-                    <div class="edu-degree">Higher Secondary</div>
-                    <div class="edu-school">DPS Ghaziabad (Commerce + Maths)</div>
-                    <p style="color:#666; font-size: 0.9rem; margin-top: 0.5rem;">Class XII: 75% | Class X: 85%</p>
-                </div>
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <span class="edu-year">Diploma</span>
+                <div class="edu-degree">Intl. Affairs & Diplomacy</div>
+                <div class="edu-school">Indian Institute of Governance and Leadership (IIGL)</div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <span class="edu-year">Apr 2020 - Mar 2023</span>
+                <div class="edu-degree">Higher Secondary</div>
+                <div class="edu-school">DPS Ghaziabad (Commerce + Maths)</div>
+                <p style="color:#666; font-size: 0.9rem; margin-top: 0.5rem;">Class XII: 75% | Class X: 85%</p>
             </div>
         </div>
-        
-        <style>
-            @media(max-width: 900px) {
-                #education > div { grid-template-columns: 1fr !important; }
-            }
-        </style>
     </section>
 
-    <!-- EXPERIENCE (Matches Nav Title) -->
+    <!-- EXPERIENCE SECTION -->
     <section id="experience">
         <div class="section-title reveal">Experience</div>
         
@@ -390,7 +412,7 @@
         </div>
     </section>
 
-    <!-- PROJECTS (Matches Nav Title) -->
+    <!-- PROJECTS SECTION -->
     <section id="projects">
         <div class="section-title reveal">Projects</div>
         
@@ -421,7 +443,7 @@
         </div>
     </section>
 
-    <!-- LEADERSHIP (Matches Nav Title) -->
+    <!-- LEADERSHIP SECTION -->
     <section id="leadership">
         <div class="section-title reveal">Leadership</div>
         
@@ -460,7 +482,7 @@
         </div>
     </section>
 
-    <!-- SKILLS (Matches Nav Title) -->
+    <!-- SKILLS SECTION -->
     <section id="skills">
         <div class="section-title reveal">Skills</div>
         <div class="skills-container reveal">
@@ -503,7 +525,7 @@
         </div>
     </section>
 
-    <!-- CONTACT (Matches Nav Title) -->
+    <!-- CONTACT SECTION -->
     <section id="contact">
         <div class="reveal">
             <div class="contact-eyebrow">CONTACT</div>
