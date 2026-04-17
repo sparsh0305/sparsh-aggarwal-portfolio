@@ -83,6 +83,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+            transition: var(--transition);
         }
 
         .nav-logo { font-weight: 800; font-size: 1.2rem; letter-spacing: -0.02em; }
@@ -90,8 +91,15 @@
         .nav-links a { font-size: 0.85rem; font-weight: 600; color: #bbb; }
         .nav-links a:hover { color: var(--accent); }
 
-        .hamburger { display: none; cursor: pointer; flex-direction: column; gap: 6px; }
-        .bar { width: 24px; height: 2px; background-color: var(--text-primary); }
+        .hamburger { 
+            display: none; 
+            cursor: pointer; 
+            flex-direction: column; 
+            gap: 6px; 
+            padding: 10px;
+            z-index: 1001;
+        }
+        .bar { width: 24px; height: 2px; background-color: var(--text-primary); transition: var(--transition); }
 
         /* --- HERO SECTION --- */
         #hero {
@@ -148,12 +156,12 @@
         @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-20px); } }
 
         .hero-buttons { display: flex; gap: 1.5rem; flex-wrap: wrap; }
-        .btn-main { padding: 1.2rem 2.5rem; background: var(--text-primary); color: #000; border-radius: 100px; font-weight: 700; font-size: 1rem; }
+        .btn-main { padding: 1.2rem 2.5rem; background: var(--text-primary); color: #000; border-radius: 100px; font-weight: 700; font-size: 1rem; cursor: pointer; border: none; }
         .btn-main:hover { background: var(--accent); color: #fff; transform: scale(1.05); }
-        .btn-outline { padding: 1.2rem 2.5rem; background: transparent; color: #fff; border: 1px solid #333; border-radius: 100px; font-weight: 700; font-size: 1rem; }
+        .btn-outline { padding: 1.2rem 2.5rem; background: transparent; color: #fff; border: 1px solid #333; border-radius: 100px; font-weight: 700; font-size: 1rem; cursor: pointer; }
         .btn-outline:hover { border-color: var(--accent); color: var(--accent); }
 
-        /* --- EDUCATION (New Offset Typography Layout) --- */
+        /* --- EDUCATION (Offset Typography Layout) --- */
         .edu-container {
             display: flex;
             flex-direction: column;
@@ -252,7 +260,7 @@
         .lead-tile h4 { font-size: 2rem; font-weight: 800; margin-bottom: 1rem; }
 
         /* --- SKILLS MATRIX --- */
-        .skills-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 4rem; }
+        .skills-container { display: grid; grid-template-columns: repeat(3, 1fr); gap: 4rem; }
         .skill-col h3 { font-size: 1.2rem; color: #fff; margin-bottom: 2rem; padding-bottom: 1rem; border-bottom: 1px solid var(--accent); text-transform: uppercase; }
         .skill-col li { margin-bottom: 1rem; font-size: 1rem; color: #888; }
         .skill-col li::before { content: "•"; color: var(--accent); margin-right: 12px; }
@@ -264,36 +272,107 @@
         .contact-card { background: #0a0a0a; border: 1px solid var(--border); padding: 4rem; border-radius: 40px; }
         .contact-info-item { margin-bottom: 3rem; }
         .contact-info-item label { font-size: 0.8rem; font-weight: 800; color: var(--accent); text-transform: uppercase; margin-bottom: 1rem; display: block; }
-        .contact-info-item a, .contact-info-item span { font-size: 1.8rem; font-weight: 700; color: #fff; }
+        .contact-info-item a, .contact-info-item span { font-size: 1.8rem; font-weight: 700; color: #fff; word-break: break-all; }
         
         /* --- REVEAL ANIMATIONS --- */
         .reveal { opacity: 0; transform: translateY(40px); transition: all 1s cubic-bezier(0.23, 1, 0.32, 1); }
         .reveal.active { opacity: 1; transform: translateY(0); }
         .reveal { transition-delay: calc(var(--order) * 150ms); }
 
-        /* --- RESPONSIVE --- */
+        /* --- RESPONSIVE ADJUSTMENTS --- */
+
+        /* Tablet (Max 1024px) */
+        @media (max-width: 1024px) {
+            .section-title { font-size: 2.5rem; margin-bottom: 3rem; }
+            .hero-title { font-size: 3.5rem; }
+            .contact-left h2 { font-size: 4rem; }
+            .skills-container { gap: 2rem; }
+        }
+
+        /* Mobile & Small Tablets (Max 900px) */
         @media (max-width: 900px) {
-            #hero { flex-direction: column-reverse; text-align: center; }
-            .hero-img-container { width: 260px; height: 340px; }
-            .hero-title { font-size: 3rem; }
-            .edu-item, .bento-grid, .leadership-wrapper, .contact-grid { grid-template-columns: 1fr; gap: 2rem; }
-            .contact-left h2 { font-size: 3rem; }
-            .exp-row { flex-direction: column; width: 100%; margin: 0; padding: 2rem; }
-            .exp-date { margin-bottom: 1rem; }
-            .bg-text { display: none; }
+            section { padding: 5rem 1.5rem; }
+            
+            /* Navigation */
+            nav { width: 95%; padding: 1rem 1.5rem; }
             .hamburger { display: flex; }
-            .nav-links { position: absolute; top: 100%; left: 0; width: 100%; background: #111; flex-direction: column; padding: 3rem; text-align: center; display: none; border-radius: 20px; }
-            .nav-links.mobile-active { display: flex; }
+            .nav-links { 
+                position: fixed; 
+                top: 0; 
+                left: 0; 
+                width: 100%; 
+                height: 100vh; 
+                background: #050505; 
+                flex-direction: column; 
+                padding: 100px 2rem; 
+                text-align: center; 
+                transform: translateX(100%);
+                transition: transform 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+                pointer-events: none;
+            }
+            .nav-links.mobile-active { transform: translateX(0); pointer-events: all; }
+            .nav-links a { font-size: 1.5rem; font-weight: 700; }
+
+            /* Hero */
+            #hero { flex-direction: column-reverse; text-align: center; justify-content: center; padding-top: 120px; gap: 2.5rem; }
+            .hero-text-content { width: 100%; }
+            .hero-img-container { width: 240px; height: 320px; margin: 0 auto; }
+            .hero-title { font-size: 2.8rem; }
+            .hero-name { font-size: 2rem; }
+            .hero-buttons { justify-content: center; }
+
+            /* Education */
+            .edu-item { grid-template-columns: 1fr; gap: 1rem; }
+            .edu-info h3 { font-size: 1.8rem; }
+            .bg-text { display: none; }
+
+            /* Experience */
+            .exp-row { flex-direction: column; width: 100%; margin: 0; padding: 2.5rem 1rem; }
+            .exp-date { margin-bottom: 1rem; font-size: 0.85rem; }
+            .exp-role { font-size: 1.5rem; }
+            .exp-row:hover { padding-left: 1.5rem; }
+
+            /* Grid Layouts */
+            .bento-grid, .leadership-wrapper, .skills-container, .contact-grid { 
+                grid-template-columns: 1fr; 
+                gap: 2rem; 
+            }
+
+            /* Projects & Leadership */
+            .project-card, .lead-tile { padding: 2rem; min-height: auto; }
+            .lead-tile-bg { font-size: 8rem; }
+            .lead-tile h4 { font-size: 1.5rem; }
+
+            /* Contact */
+            .contact-left h2 { font-size: 2.8rem; text-align: center; }
+            .contact-left { text-align: center; }
+            .contact-card { padding: 2rem; border-radius: 24px; }
+            .contact-info-item a, .contact-info-item span { font-size: 1.3rem; }
+            
+            .footer-content {
+                flex-direction: column;
+                gap: 1rem;
+                text-align: center;
+            }
+        }
+
+        /* Small Phones (Max 480px) */
+        @media (max-width: 480px) {
+            .hero-title { font-size: 2.2rem; }
+            .btn-main, .btn-outline { width: 100%; text-align: center; padding: 1rem; }
+            .section-title { font-size: 2rem; }
         }
     </style>
 </head>
 <body>
 
     <!-- NAVIGATION -->
-    <nav>
+    <nav id="navbar">
         <div class="nav-logo">SPARSH AGGARWAL</div>
         <div class="hamburger" id="hamburger">
-            <div class="bar"></div><div class="bar"></div><div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
         </div>
         <ul class="nav-links" id="nav-links">
             <li><a href="#about">About</a></li>
@@ -333,7 +412,7 @@
         </div>
     </section>
 
-    <!-- EDUCATION (Redesigned Offset Layout) -->
+    <!-- EDUCATION -->
     <section id="education">
         <div class="section-title reveal">Education</div>
         <div class="edu-container">
@@ -419,7 +498,7 @@
     <section id="projects">
         <div class="section-title reveal">Projects</div>
         <div class="bento-grid">
-            <div class="project-card reveal">
+            <div class="project-card reveal" style="--order: 1">
                 <div>
                     <span class="proj-tag">Entrepreneurship</span>
                     <div class="proj-title">C.N.V.R.T</div>
@@ -429,7 +508,7 @@
                 <a href="#" class="proj-link">View Case Study</a>
             </div>
 
-            <div class="project-card reveal">
+            <div class="project-card reveal" style="--order: 2">
                 <div>
                     <span class="proj-tag">Acquisition</span>
                     <div class="proj-title">The Outreach Project</div>
@@ -439,7 +518,7 @@
                 <a href="#" class="proj-link">View Case Study</a>
             </div>
 
-            <div class="project-card reveal">
+            <div class="project-card reveal" style="--order: 3">
                 <div>
                     <span class="proj-tag">Analytics</span>
                     <div class="proj-title">Marketing Analytics</div>
@@ -449,7 +528,7 @@
                 <a href="#" class="proj-link">View Case Study</a>
             </div>
 
-            <div class="project-card reveal">
+            <div class="project-card reveal" style="--order: 4">
                 <div>
                     <span class="proj-tag">Operations</span>
                     <div class="proj-title">SME Operations</div>
@@ -465,14 +544,14 @@
     <section id="leadership">
         <div class="section-title reveal">Leadership</div>
         <div class="leadership-wrapper">
-            <div class="lead-tile reveal">
+            <div class="lead-tile reveal" style="--order: 1">
                 <div class="lead-tile-bg">IIMB</div>
                 <span class="lead-tile-org">IIM Bangalore</span>
                 <h4>Student Representative</h4>
                 <p style="color: #777;">Strategic liaison managing administrative escalations and institutional communication.</p>
             </div>
             
-            <div class="lead-tile reveal">
+            <div class="lead-tile reveal" style="--order: 2">
                 <div class="lead-tile-bg">SCH</div>
                 <span class="lead-tile-org">School Proctor</span>
                 <h4>Vice-Captain</h4>
@@ -485,15 +564,15 @@
     <section id="skills">
         <div class="section-title reveal">Core Skills</div>
         <div class="skills-container reveal">
-            <div class="skill-col">
+            <div class="skill-col" style="--order: 1">
                 <h3>Strategy</h3>
                 <ul><li>Market Research</li><li>Business Modeling</li><li>Operations</li><li>Problem Solving</li></ul>
             </div>
-            <div class="skill-col">
+            <div class="skill-col" style="--order: 2">
                 <h3>Analytics</h3>
                 <ul><li>Data Analysis</li><li>Financial Analysis</li><li>Content Strategy</li><li>Social Analytics</li></ul>
             </div>
-            <div class="skill-col">
+            <div class="skill-col" style="--order: 3">
                 <h3>Tools</h3>
                 <ul><li>Canva & PPT</li><li>Notion</li><li>Google Workspace</li><li>HTML/CSS</li></ul>
             </div>
@@ -522,7 +601,7 @@
                 </div>
             </div>
         </div>
-        <div style="margin-top: 5rem; border-top: 1px solid #222; padding-top: 2rem; font-size: 0.8rem; color: #444; display: flex; justify-content: space-between;">
+        <div class="footer-content" style="margin-top: 5rem; border-top: 1px solid #222; padding-top: 2rem; font-size: 0.8rem; color: #444; display: flex; justify-content: space-between;">
             <p>&copy; 2026 Sparsh Aggarwal. IIM Bangalore.</p>
             <p>Strategy • Analytics • Operations</p>
         </div>
@@ -532,8 +611,24 @@
         // --- MOBILE MENU ---
         const hamburger = document.getElementById('hamburger');
         const navLinks = document.getElementById('nav-links');
-        hamburger.addEventListener('click', () => { navLinks.classList.toggle('mobile-active'); });
-        document.querySelectorAll('.nav-links a').forEach(link => { link.addEventListener('click', () => { navLinks.classList.remove('mobile-active'); }); });
+        const bars = document.querySelectorAll('.bar');
+
+        hamburger.addEventListener('click', () => { 
+            navLinks.classList.toggle('mobile-active'); 
+            
+            // Hamburger to X animation
+            bars[0].style.transform = navLinks.classList.contains('mobile-active') ? 'translateY(8px) rotate(45deg)' : 'none';
+            bars[1].style.opacity = navLinks.classList.contains('mobile-active') ? '0' : '1';
+            bars[2].style.transform = navLinks.classList.contains('mobile-active') ? 'translateY(-8px) rotate(-45deg)' : 'none';
+        });
+
+        document.querySelectorAll('.nav-links a').forEach(link => { 
+            link.addEventListener('click', () => { 
+                navLinks.classList.remove('mobile-active'); 
+                bars.forEach(bar => bar.style.transform = 'none');
+                bars[1].style.opacity = '1';
+            }); 
+        });
 
         // --- SCROLL REVEAL ---
         const observer = new IntersectionObserver((entries) => {
@@ -541,7 +636,20 @@
                 if (entry.isIntersecting) { entry.target.classList.add('active'); }
             });
         }, { threshold: 0.1 });
+        
         document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+        // --- DYNAMIC NAV BACKGROUND ---
+        window.addEventListener('scroll', () => {
+            const nav = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                nav.style.background = "rgba(10, 10, 10, 0.9)";
+                nav.style.padding = "0.8rem 2rem";
+            } else {
+                nav.style.background = "var(--bg-glass)";
+                nav.style.padding = "1.2rem 2.5rem";
+            }
+        });
     </script>
 </body>
 </html>
