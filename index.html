@@ -16,17 +16,17 @@
         :root {
             --bg-body: #050505;
             --bg-card: #0f0f0f;
-            --bg-glass: rgba(10, 10, 10, 0.6);
+            --bg-glass: rgba(10, 10, 10, 0.7);
             --text-primary: #ffffff;
             --text-secondary: #a3a3a3;
-            --text-muted: #555555;
+            --text-muted: #444444;
             --accent: #ea580c; 
             --accent-glow: rgba(234, 88, 12, 0.25);
-            --border: #262626;
+            --border: #222222;
             --font-main: 'Manrope', sans-serif;
-            --transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            --transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
             --radius-md: 12px;
-            --radius-lg: 20px;
+            --radius-lg: 24px;
         }
 
         /* --- RESET & BASE --- */
@@ -46,8 +46,8 @@
         img { max-width: 100%; display: block; }
 
         section {
-            padding: 6rem 1.5rem;
-            max-width: 1100px;
+            padding: 8rem 1.5rem;
+            max-width: 1200px;
             margin: 0 auto;
         }
 
@@ -55,11 +55,11 @@
         h1, h2, h3, h4 { line-height: 1.1; letter-spacing: -0.03em; }
         
         .section-title {
-            font-size: 2.5rem;
-            margin-bottom: 3.5rem;
-            font-weight: 700;
+            font-size: 3rem;
+            margin-bottom: 5rem;
+            font-weight: 800;
             display: inline-block;
-            background: linear-gradient(to right, #fff, #888);
+            background: linear-gradient(to bottom, #fff 0%, #777 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             text-transform: capitalize;
@@ -68,401 +68,222 @@
         /* --- NAVIGATION --- */
         nav {
             position: fixed;
-            top: 20px;
+            top: 25px;
             left: 50%;
             transform: translateX(-50%);
             width: 90%;
-            max-width: 1000px;
+            max-width: 1100px;
             z-index: 1000;
-            padding: 1rem 2rem;
+            padding: 1.2rem 2.5rem;
             background: var(--bg-glass);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(25px);
+            -webkit-backdrop-filter: blur(25px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
             border-radius: 100px;
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
 
-        .nav-logo { font-weight: 800; font-size: 1.1rem; letter-spacing: -0.02em; }
-        .nav-links { display: flex; gap: 1.5rem; }
-        .nav-links a { font-size: 0.85rem; font-weight: 500; color: #ccc; opacity: 0.8; }
-        .nav-links a:hover { color: var(--text-primary); opacity: 1; }
+        .nav-logo { font-weight: 800; font-size: 1.2rem; letter-spacing: -0.02em; }
+        .nav-links { display: flex; gap: 2rem; }
+        .nav-links a { font-size: 0.85rem; font-weight: 600; color: #bbb; }
+        .nav-links a:hover { color: var(--accent); }
 
         .hamburger { display: none; cursor: pointer; flex-direction: column; gap: 6px; }
         .bar { width: 24px; height: 2px; background-color: var(--text-primary); }
 
         /* --- HERO SECTION --- */
         #hero {
-            min-height: 90vh;
+            min-height: 95vh;
             display: flex;
             flex-direction: row;
             align-items: center;
             justify-content: space-between;
-            text-align: left;
-            padding-top: 120px;
-            gap: 2rem;
+            padding-top: 100px;
+            gap: 4rem;
         }
 
-        .hero-text-content { flex: 1; max-width: 600px; }
+        .hero-text-content { flex: 1.2; }
 
         .hero-img-container {
-            width: 280px; 
-            height: 280px; 
+            width: 320px; 
+            height: 420px; 
             flex-shrink: 0;
-            border-radius: 50%; 
+            border-radius: 30px; 
             overflow: hidden;
-            box-shadow: 0 0 50px rgba(234, 88, 12, 0.15);
-            border: 2px solid rgba(255,255,255,0.1);
-            animation: float 5s ease-in-out infinite;
+            box-shadow: 0 40px 80px -20px rgba(0,0,0,0.8);
+            border: 1px solid rgba(255,255,255,0.1);
+            animation: float 6s ease-in-out infinite;
         }
 
         .hero-name {
-            font-size: 2.2rem;
-            font-weight: 700;
+            font-size: 2.5rem;
+            font-weight: 800;
             color: var(--text-primary);
             margin-bottom: 0.5rem;
-            letter-spacing: -0.02em;
         }
 
         .hero-label {
-            font-size: 0.85rem; font-weight: 600; color: var(--accent);
-            text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 1.5rem;
-        }
-
-        .hero-title {
-            font-size: 4rem; font-weight: 800; margin-bottom: 1rem;
-            background: linear-gradient(180deg, #fff 0%, #aaa 100%);
-            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-        }
-
-        .hero-subtitle { font-size: 1.4rem; color: #888; font-weight: 400; margin-bottom: 2rem; }
-
-        @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
-
-        .hero-buttons { display: flex; gap: 1rem; flex-wrap: wrap; }
-
-        .btn-main {
-            padding: 1rem 2rem; background: var(--text-primary); color: #000;
-            border-radius: 50px; font-weight: 600; font-size: 0.9rem;
-            display: inline-block;
-        }
-        .btn-main:hover { background: #ddd; transform: translateY(-2px); }
-
-        .btn-outline {
-            padding: 1rem 2rem; 
-            background: transparent; 
-            color: var(--text-primary);
-            border: 1px solid rgba(255,255,255,0.3);
-            border-radius: 50px; 
-            font-weight: 600; 
             font-size: 0.9rem;
-            display: inline-block;
-        }
-        .btn-outline:hover { border-color: #fff; background: rgba(255,255,255,0.1); transform: translateY(-2px); }
-
-        /* --- EXPERIENCE LAYOUT (Enhanced Animations) --- */
-        .exp-row {
-            display: flex;
-            align-items: flex-start;
-            padding: 3rem 2rem; 
-            margin: 0 -2rem;
-            width: calc(100% + 4rem);
-            border-bottom: 1px solid rgba(255,255,255,0.05);
-            transition: var(--transition);
-            border-radius: 12px;
-            position: relative;
-            overflow: hidden;
-            background: transparent;
-        }
-
-        .exp-row::before {
-            content: '';
-            position: absolute;
-            left: 0;
-            top: 0;
-            height: 100%;
-            width: 3px;
-            background: var(--accent);
-            transform: scaleY(0);
-            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-            transform-origin: bottom;
-        }
-
-        .exp-row:hover { 
-            background: rgba(255,255,255,0.03); 
-            border-color: transparent;
-            padding-left: 2.5rem;
-        }
-
-        .exp-row:hover::before {
-            transform: scaleY(1);
-            transform-origin: top;
-        }
-
-        .exp-date { 
-            flex: 0 0 25%; 
-            font-size: 0.9rem; 
-            color: #666; 
-            font-weight: 600; 
-            padding-right: 2rem;
-            transition: color 0.3s ease;
-        }
-
-        .exp-row:hover .exp-date {
-            color: var(--accent);
-        }
-
-        .exp-content { flex: 1; }
-        .exp-role { font-size: 1.4rem; font-weight: 600; margin-bottom: 0.3rem; color: #fff; }
-        .exp-company { font-size: 1rem; color: var(--accent); margin-bottom: 1rem; display: block; }
-
-        /* --- BENTO PROJECTS --- */
-        .bento-grid {
-            display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem;
-        }
-        .project-card {
-            background: #111; padding: 2.2rem; border-radius: 20px;
-            border: 1px solid #222; transition: var(--transition);
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-        }
-        .project-card:hover { border-color: var(--accent); transform: translateY(-5px); }
-        .proj-title { font-size: 1.3rem; font-weight: 700; margin-bottom: 0.5rem; }
-        .proj-tag { display: inline-block; font-size: 0.7rem; padding: 4px 10px; border: 1px solid #333; border-radius: 20px; color: #888; margin-bottom: 1.2rem; }
-        .proj-metric { color: #fff; font-weight: 600; font-size: 0.95rem; margin-top: 0.5rem; display: block; }
-        
-        .proj-link-btn {
-            margin-top: 1.5rem;
-            display: inline-flex;
-            align-items: center;
-            font-size: 0.8rem;
             font-weight: 700;
             color: var(--accent);
             text-transform: uppercase;
-            letter-spacing: 0.05em;
-            transition: var(--transition);
-        }
-        .proj-link-btn:hover { color: #fff; }
-        .proj-link-btn::after { content: " ↗"; font-size: 1rem; margin-left: 4px; }
-
-        /* --- EDUCATION TIMELINE --- */
-        .timeline-wrap { border-left: 2px solid rgba(255,255,255,0.1); padding-left: 3rem; margin-left: 1rem; }
-        .timeline-item { position: relative; margin-bottom: 3rem; }
-        .timeline-dot {
-            position: absolute; left: -3.6rem; top: 5px; width: 16px; height: 16px;
-            background: var(--bg-body); border: 2px solid var(--accent); border-radius: 50%;
-        }
-
-        /* --- REDESIGNED LEADERSHIP SECTION (STAIRCASE TILES) --- */
-        .leadership-wrapper {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 2rem;
-        }
-
-        .lead-tile {
-            position: relative;
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            padding: 3rem 2.5rem;
-            border-radius: 24px;
-            overflow: hidden;
-            transition: var(--transition);
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-end;
-            min-height: 280px;
-        }
-
-        .lead-tile:hover {
-            border-color: var(--accent);
-            background: #151515;
-            transform: translateY(-8px);
-            box-shadow: 0 20px 40px -20px rgba(0,0,0,1);
-        }
-
-        .lead-tile-bg {
-            position: absolute;
-            top: -20px;
-            right: -20px;
-            font-size: 10rem;
-            font-weight: 900;
-            color: rgba(255, 255, 255, 0.03);
-            pointer-events: none;
-            user-select: none;
-            transition: var(--transition);
-        }
-
-        .lead-tile:hover .lead-tile-bg {
-            color: rgba(234, 88, 12, 0.05);
-            transform: scale(1.1) rotate(-5deg);
-        }
-
-        .lead-tile-org {
-            font-size: 0.75rem;
-            font-weight: 800;
-            color: var(--accent);
-            text-transform: uppercase;
-            letter-spacing: 0.15em;
-            margin-bottom: 0.75rem;
+            letter-spacing: 0.2em;
+            margin-bottom: 2rem;
             display: block;
         }
 
-        .lead-tile h4 {
-            font-size: 1.6rem;
-            font-weight: 700;
-            color: #fff;
-            margin-bottom: 1rem;
-            max-width: 90%;
-        }
-
-        .lead-tile-desc {
-            font-size: 0.95rem;
-            color: var(--text-secondary);
-            line-height: 1.6;
-            opacity: 0.8;
-        }
-
-        /* --- SKILLS MATRIX --- */
-        .skills-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2.5rem; }
-        .skill-col h3 { font-size: 1rem; color: #fff; margin-bottom: 1.2rem; padding-bottom: 0.8rem; border-bottom: 1px solid var(--accent); text-transform: uppercase; letter-spacing: 0.05em; }
-        .skill-col li { margin-bottom: 0.6rem; font-size: 0.9rem; color: #999; }
-        .skill-col li::before { content: "•"; color: var(--accent); margin-right: 8px; }
-
-        /* --- REDESIGNED CONTACT SECTION --- */
-        #contact {
-            padding: 8rem 1.5rem;
-            background: radial-gradient(circle at bottom right, rgba(234, 88, 12, 0.05), transparent 40%);
-        }
-
-        .contact-grid {
-            display: grid;
-            grid-template-columns: 1.2fr 0.8fr;
-            gap: 4rem;
-            align-items: center;
-        }
-
-        .contact-left h2 {
-            font-size: 3.5rem;
+        .hero-title {
+            font-size: 4.5rem;
             font-weight: 800;
             margin-bottom: 1.5rem;
-            background: linear-gradient(to bottom, #fff, #999);
+            background: linear-gradient(to bottom, #fff 40%, #888 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
 
-        .contact-left p {
-            font-size: 1.1rem;
-            color: var(--text-secondary);
-            margin-bottom: 2.5rem;
-            max-width: 500px;
+        .hero-subtitle { font-size: 1.5rem; color: #999; font-weight: 400; margin-bottom: 3rem; }
+
+        @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-20px); } }
+
+        .hero-buttons { display: flex; gap: 1.5rem; flex-wrap: wrap; }
+        .btn-main { padding: 1.2rem 2.5rem; background: var(--text-primary); color: #000; border-radius: 100px; font-weight: 700; font-size: 1rem; }
+        .btn-main:hover { background: var(--accent); color: #fff; transform: scale(1.05); }
+        .btn-outline { padding: 1.2rem 2.5rem; background: transparent; color: #fff; border: 1px solid #333; border-radius: 100px; font-weight: 700; font-size: 1rem; }
+        .btn-outline:hover { border-color: var(--accent); color: var(--accent); }
+
+        /* --- EDUCATION (New Offset Typography Layout) --- */
+        .edu-container {
+            display: flex;
+            flex-direction: column;
+            gap: 4rem;
         }
 
-        .contact-card {
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 24px;
-            padding: 2.5rem;
-            backdrop-filter: blur(10px);
-            transition: var(--transition);
+        .edu-item {
+            display: grid;
+            grid-template-columns: 0.5fr 1fr;
+            padding-bottom: 4rem;
+            border-bottom: 1px solid var(--border);
+            position: relative;
         }
 
-        .contact-card:hover {
-            border-color: var(--accent);
-            background: rgba(234, 88, 12, 0.02);
-        }
+        .edu-item:last-child { border-bottom: none; }
 
-        .contact-info-item {
-            margin-bottom: 2rem;
-        }
-
-        .contact-info-item label {
-            display: block;
-            font-size: 0.75rem;
+        .edu-meta {
+            font-size: 1rem;
+            font-weight: 800;
             color: var(--accent);
-            font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 0.1em;
+        }
+
+        .edu-info h3 {
+            font-size: 2.2rem;
+            font-weight: 800;
             margin-bottom: 0.5rem;
         }
 
-        .contact-info-item span, .contact-info-item a {
-            display: block;
-            font-size: 1.25rem;
-            font-weight: 600;
-            color: #fff;
-        }
-
-        .contact-info-item a:hover { color: var(--accent); }
-
-        .contact-social-strip {
-            display: flex;
-            gap: 1.5rem;
-            margin-top: 3rem;
-            padding-top: 2rem;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .social-link {
-            font-size: 0.9rem;
-            font-weight: 600;
+        .edu-info .org {
+            font-size: 1.2rem;
             color: var(--text-secondary);
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
+            margin-bottom: 1.5rem;
         }
 
-        .social-link:hover { color: #fff; }
-
-        .social-link::after {
-            content: "→";
+        .edu-info .details {
+            color: #777;
             font-size: 1rem;
-            transition: transform 0.3s ease;
+            max-width: 600px;
         }
 
-        .social-link:hover::after { transform: translateX(4px); }
+        .edu-item .bg-text {
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 8rem;
+            font-weight: 900;
+            color: rgba(255, 255, 255, 0.02);
+            pointer-events: none;
+            z-index: -1;
+            text-transform: uppercase;
+        }
 
-        .footer-bottom {
-            margin-top: 6rem;
-            padding-top: 2rem;
-            border-top: 1px solid var(--border);
+        /* --- EXPERIENCE SECTION --- */
+        .exp-row {
             display: flex;
-            justify-content: space-between;
-            align-items: center;
-            font-size: 0.8rem;
-            color: var(--text-muted);
+            align-items: flex-start;
+            padding: 4rem 2rem;
+            margin: 0 -2rem;
+            border-bottom: 1px solid var(--border);
+            transition: var(--transition);
+            position: relative;
         }
 
-        /* --- REVEAL ANIMATIONS --- */
-        .reveal { opacity: 0; transform: translateY(30px); transition: all 0.8s ease; }
-        .reveal.active { opacity: 1; transform: translateY(0); }
+        .exp-row:hover { background: rgba(255,255,255,0.02); padding-left: 3rem; }
+        .exp-row::before { content: ''; position: absolute; left: 0; top: 0; height: 100%; width: 4px; background: var(--accent); transform: scaleY(0); transition: var(--transition); transform-origin: top; }
+        .exp-row:hover::before { transform: scaleY(1); }
 
-        .exp-row.reveal { transition-delay: calc(var(--order) * 100ms); }
+        .exp-date { flex: 0 0 25%; font-size: 0.95rem; font-weight: 700; color: #555; }
+        .exp-row:hover .exp-date { color: var(--accent); }
+        .exp-content { flex: 1; }
+        .exp-role { font-size: 1.8rem; font-weight: 700; margin-bottom: 0.5rem; }
+        .exp-company { font-size: 1.1rem; color: var(--accent); font-weight: 600; margin-bottom: 1.5rem; display: block; }
+        .exp-desc { color: var(--text-secondary); font-size: 1.05rem; }
+
+        /* --- PROJECTS SECTION --- */
+        .bento-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem; }
+        .project-card {
+            background: #0a0a0a; border: 1px solid var(--border); padding: 3rem; border-radius: 30px;
+            display: flex; flex-direction: column; justify-content: space-between; transition: var(--transition);
+        }
+        .project-card:hover { border-color: var(--accent); transform: translateY(-10px); background: #111; }
+        .proj-title { font-size: 1.8rem; font-weight: 800; margin-bottom: 1rem; }
+        .proj-tag { display: inline-block; font-size: 0.75rem; padding: 6px 14px; background: #1a1a1a; border-radius: 50px; color: #888; margin-bottom: 2rem; }
+        .proj-metric { font-weight: 800; color: #fff; margin-top: 1rem; display: block; }
+        .proj-link { margin-top: 2rem; font-weight: 800; color: var(--accent); font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.1em; }
+
+        /* --- LEADERSHIP TILES --- */
+        .leadership-wrapper { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem; }
+        .lead-tile { position: relative; background: var(--bg-card); border: 1px solid var(--border); padding: 4rem 3rem; border-radius: 32px; overflow: hidden; transition: var(--transition); display: flex; flex-direction: column; justify-content: flex-end; min-height: 320px; }
+        .lead-tile:hover { border-color: var(--accent); transform: scale(1.02); }
+        .lead-tile-bg { position: absolute; top: -10px; right: -10px; font-size: 12rem; font-weight: 900; color: rgba(255, 255, 255, 0.03); pointer-events: none; }
+        .lead-tile-org { font-size: 0.8rem; font-weight: 800; color: var(--accent); text-transform: uppercase; margin-bottom: 1rem; display: block; }
+        .lead-tile h4 { font-size: 2rem; font-weight: 800; margin-bottom: 1rem; }
+
+        /* --- SKILLS MATRIX --- */
+        .skills-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 4rem; }
+        .skill-col h3 { font-size: 1.2rem; color: #fff; margin-bottom: 2rem; padding-bottom: 1rem; border-bottom: 1px solid var(--accent); text-transform: uppercase; }
+        .skill-col li { margin-bottom: 1rem; font-size: 1rem; color: #888; }
+        .skill-col li::before { content: "•"; color: var(--accent); margin-right: 12px; }
+
+        /* --- CONTACT SECTION --- */
+        #contact { padding: 10rem 1.5rem; background: radial-gradient(circle at top left, rgba(234, 88, 12, 0.08), transparent 50%); }
+        .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: center; }
+        .contact-left h2 { font-size: 5rem; font-weight: 800; line-height: 0.9; margin-bottom: 2rem; }
+        .contact-card { background: #0a0a0a; border: 1px solid var(--border); padding: 4rem; border-radius: 40px; }
+        .contact-info-item { margin-bottom: 3rem; }
+        .contact-info-item label { font-size: 0.8rem; font-weight: 800; color: var(--accent); text-transform: uppercase; margin-bottom: 1rem; display: block; }
+        .contact-info-item a, .contact-info-item span { font-size: 1.8rem; font-weight: 700; color: #fff; }
+        
+        /* --- REVEAL ANIMATIONS --- */
+        .reveal { opacity: 0; transform: translateY(40px); transition: all 1s cubic-bezier(0.23, 1, 0.32, 1); }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+        .reveal { transition-delay: calc(var(--order) * 150ms); }
 
         /* --- RESPONSIVE --- */
         @media (max-width: 900px) {
-            #hero { flex-direction: column-reverse; text-align: center; justify-content: center; }
-            .hero-text-content { width: 100%; display: flex; flex-direction: column; align-items: center; }
-            .hero-img-container { width: 220px; height: 220px; }
-            .hero-title { font-size: 2.5rem; }
-            .bento-grid, .leadership-wrapper, .contact-grid { grid-template-columns: 1fr; }
-            .lead-tile { min-height: auto; }
-            .contact-left { text-align: center; }
-            .contact-left p { margin: 0 auto 2.5rem; }
-            .footer-bottom { flex-direction: column; gap: 1rem; text-align: center; }
-            .exp-row { flex-direction: column; width: 100%; margin: 0; padding: 2rem 1rem; }
-            .exp-date { margin-bottom: 0.5rem; }
+            #hero { flex-direction: column-reverse; text-align: center; }
+            .hero-img-container { width: 260px; height: 340px; }
+            .hero-title { font-size: 3rem; }
+            .edu-item, .bento-grid, .leadership-wrapper, .contact-grid { grid-template-columns: 1fr; gap: 2rem; }
+            .contact-left h2 { font-size: 3rem; }
+            .exp-row { flex-direction: column; width: 100%; margin: 0; padding: 2rem; }
+            .exp-date { margin-bottom: 1rem; }
+            .bg-text { display: none; }
             .hamburger { display: flex; }
-            .nav-links {
-                position: absolute; top: 100%; left: 0; width: 100%;
-                background: #111; flex-direction: column; padding: 2rem; text-align: center;
-                transform: translateY(-20px); opacity: 0; pointer-events: none;
-                transition: var(--transition); border-radius: 20px; border: 1px solid #333;
-            }
-            .nav-links.mobile-active { opacity: 1; pointer-events: all; transform: translateY(10px); }
+            .nav-links { position: absolute; top: 100%; left: 0; width: 100%; background: #111; flex-direction: column; padding: 3rem; text-align: center; display: none; border-radius: 20px; }
+            .nav-links.mobile-active { display: flex; }
         }
     </style>
 </head>
@@ -472,9 +293,7 @@
     <nav>
         <div class="nav-logo">SPARSH AGGARWAL</div>
         <div class="hamburger" id="hamburger">
-            <div class="bar"></div>
-            <div class="bar"></div>
-            <div class="bar"></div>
+            <div class="bar"></div><div class="bar"></div><div class="bar"></div>
         </div>
         <ul class="nav-links" id="nav-links">
             <li><a href="#about">About</a></li>
@@ -491,9 +310,9 @@
     <section id="hero">
         <div class="hero-text-content">
             <h2 class="hero-name reveal">Sparsh Aggarwal</h2>
-            <div class="hero-label reveal">BBA @ IIM Bangalore</div>
-            <h1 class="hero-title reveal">Strategy.<br>Marketing.<br>Operations.</h1>
-            <p class="hero-subtitle reveal">Bridging financial acumen with creative strategy.</p>
+            <span class="hero-label reveal">BBA @ IIM Bangalore</span>
+            <h1 class="hero-title reveal">Digital Business & Strategy.</h1>
+            <p class="hero-subtitle reveal">Turning operational insights into scalable digital ventures.</p>
             <div class="hero-buttons reveal">
                 <a href="Sparsh_Aggarwal_Resume.pdf" download class="btn-main">Download CV</a>
                 <a href="https://www.linkedin.com/in/sparsh-aggarwal-2027/" target="_blank" class="btn-outline">LinkedIn</a>
@@ -508,39 +327,58 @@
     <section id="about">
         <div class="section-title reveal">About Me</div>
         <div class="reveal">
-            <p style="color: #a3a3a3; line-height: 1.8; font-size: 1.1rem; max-width: 850px;">
-                Strategic and analytical BBA student at <strong>IIM Bangalore</strong> with a proven track record in marketing analytics, entrepreneurial operations, and business modeling. I specialize in identifying operational bottlenecks—like productivity gaps in SME recycling units—and designing scalable, ESG-aligned interventions. My approach blends zero-cost acquisition strategies with rigorous unit economic planning.
+            <p style="color: #a3a3a3; line-height: 2; font-size: 1.25rem; max-width: 900px; font-weight: 300;">
+                Strategic BBA student at <strong style="color: #fff;">IIM Bangalore</strong> specializing in Digital Business & Entrepreneurship. I bridge the gap between rigorous analytics and creative strategy, with a focus on unit economics and operational optimization. From scaling zero-cost acquisition frameworks to mitigating heat stress in recycling SMEs, my work is driven by <span style="color: var(--accent);">measurable results.</span>
             </p>
         </div>
     </section>
 
-    <!-- EDUCATION -->
+    <!-- EDUCATION (Redesigned Offset Layout) -->
     <section id="education">
         <div class="section-title reveal">Education</div>
-        <div class="timeline-wrap reveal">
-            <div class="timeline-item">
-                <div class="timeline-dot"></div>
-                <span class="edu-year">Sep 2024 - June 2027</span>
-                <div class="edu-degree">BBA - Digital Business & Entrepreneurship</div>
-                <div class="edu-school">Indian Institute of Management Bangalore (IIM Bangalore)</div>
+        <div class="edu-container">
+            <!-- IIMB -->
+            <div class="edu-item reveal" style="--order: 1">
+                <div class="bg-text">IIMB</div>
+                <div class="edu-meta">Sep 2024 — 2027</div>
+                <div class="edu-info">
+                    <h3>BBA — Digital Business & Entrepreneurship</h3>
+                    <p class="org">Indian Institute of Management Bangalore</p>
+                    <p class="details">Specializing in digital ecosystem strategies, unit economics, and new venture creation. Actively applying frameworks to sustainable fashion and SME operations.</p>
+                </div>
             </div>
-            <div class="timeline-item">
-                <div class="timeline-dot"></div>
-                <span class="edu-year">Oct 2025 - Apr 2026</span>
-                <div class="edu-degree">Diploma in International Affairs & Diplomacy</div>
-                <div class="edu-school">Indian Institute of Governance and Leadership (IIGL)</div>
+
+            <!-- IIGL -->
+            <div class="edu-item reveal" style="--order: 2">
+                <div class="bg-text">IIGL</div>
+                <div class="edu-meta">2025 — 2026</div>
+                <div class="edu-info">
+                    <h3>Intl. Affairs & Diplomacy</h3>
+                    <p class="org">Indian Institute of Governance and Leadership</p>
+                    <p class="details">Diploma focusing on global governance, leadership dynamics, and international relations.</p>
+                </div>
             </div>
-            <div class="timeline-item">
-                <div class="timeline-dot"></div>
-                <span class="edu-year">Graduated 2023</span>
-                <div class="edu-degree">Class XII – Commerce with Maths (75%)</div>
-                <div class="edu-school">DPSG Faridabad</div>
+
+            <!-- Schooling -->
+            <div class="edu-item reveal" style="--order: 3">
+                <div class="bg-text">DPSG</div>
+                <div class="edu-meta">Graduated 2023</div>
+                <div class="edu-info">
+                    <h3>Class XII (Commerce with Maths)</h3>
+                    <p class="org">DPSG Faridabad</p>
+                    <p class="details">Aggregated <strong style="color: #fff;">75%</strong> in Class XII. Prioritized rigorous quantitative and business foundational subjects.</p>
+                </div>
             </div>
-            <div class="timeline-item">
-                <div class="timeline-dot"></div>
-                <span class="edu-year">Graduated 2021</span>
-                <div class="edu-degree">Class X (85%)</div>
-                <div class="edu-school">Presidium Faridabad</div>
+
+            <!-- Schooling X -->
+            <div class="edu-item reveal" style="--order: 4">
+                <div class="bg-text">PRES</div>
+                <div class="edu-meta">Graduated 2021</div>
+                <div class="edu-info">
+                    <h3>Class X</h3>
+                    <p class="org">Presidium Faridabad</p>
+                    <p class="details">Aggregated <strong style="color: #fff;">85%</strong>. Developed early leadership skills and active participation in school activities.</p>
+                </div>
             </div>
         </div>
     </section>
@@ -554,7 +392,7 @@
             <div class="exp-content">
                 <div class="exp-role">Business Operations</div>
                 <span class="exp-company">Family Business</span>
-                <p class="exp-desc">Managing order flow, vendor coordination, and client servicing. Improved workflow visibility and execution consistency through structured documentation. Support financial analysis and demand assessment for operational decision-making.</p>
+                <p class="exp-desc">Managed order flow and vendor coordination. Improved workflow visibility and supported demand assessment for strategic decision-making.</p>
             </div>
         </div>
 
@@ -563,7 +401,7 @@
             <div class="exp-content">
                 <div class="exp-role">Web Development</div>
                 <span class="exp-company">Academic & Freelance</span>
-                <p class="exp-desc">Built <strong>20+ responsive websites</strong>. Translated complex business requirements into functional UI/UX layouts aligned with core brand positioning.</p>
+                <p class="exp-desc">Designed 20+ responsive sites. Translated complex business logic into user-centric UI/UX frameworks.</p>
             </div>
         </div>
 
@@ -572,7 +410,7 @@
             <div class="exp-content">
                 <div class="exp-role">Content Research Intern</div>
                 <span class="exp-company">Social Media Newsroom</span>
-                <p class="exp-desc">Delivered real-time trend analysis across Instagram and X (Twitter), directly improving content relevance and publishing speed for digital media coverage.</p>
+                <p class="exp-desc">Real-time trend analysis on Instagram and X, optimizing content relevance and deployment speed.</p>
             </div>
         </div>
     </section>
@@ -583,111 +421,81 @@
         <div class="bento-grid">
             <div class="project-card reveal">
                 <div>
+                    <span class="proj-tag">Entrepreneurship</span>
                     <div class="proj-title">C.N.V.R.T</div>
-                    <div class="proj-tag">Entrepreneurial Strategy</div>
-                    <p style="color: #999; font-size: 0.9rem;">Led 6-member team building a sustainable fashion venture. Conducted 90+ surveys to find that style outweighs sustainability intent.</p>
-                    <span class="proj-metric">₹3,000 ASP | 33% Margin</span>
+                    <p style="color: #777;">Sustainable fashion venture targeting fast fashion inefficiencies. Researched 90+ consumers.</p>
+                    <span class="proj-metric">33% Margin | 2.1k Unit break-even</span>
                 </div>
-                <a href="#" class="proj-link-btn">View Details</a>
+                <a href="#" class="proj-link">View Case Study</a>
             </div>
 
             <div class="project-card reveal">
                 <div>
+                    <span class="proj-tag">Acquisition</span>
                     <div class="proj-title">The Outreach Project</div>
-                    <div class="proj-tag">Client Acquisition</div>
-                    <p style="color: #999; font-size: 0.9rem;">Zero-cost acquisition strategy achieved <span class="proj-metric">100% conversion</span> (3/3 clients) generating ₹3,000 in just 4 hours.</p>
+                    <p style="color: #777;">Achieved 100% conversion (3/3 clients) generating ₹3,000 in 4 hours using zero-cost strategy.</p>
+                    <span class="proj-metric">100% Conversion Achievement</span>
                 </div>
-                <a href="#" class="proj-link-btn">View Details</a>
+                <a href="#" class="proj-link">View Case Study</a>
             </div>
 
             <div class="project-card reveal">
                 <div>
+                    <span class="proj-tag">Analytics</span>
                     <div class="proj-title">Marketing Analytics</div>
-                    <div class="proj-tag">Revenue & Conversion</div>
-                    <p style="color: #999; font-size: 0.9rem;">Improved <span class="proj-metric">CTR from 2.1% to 3.2%</span> and reduced <span class="proj-metric">CPA by 22%</span> (₹830 to ₹646).</p>
+                    <p style="color: #777;">CTR improved from 2.1% to 3.2% while reducing CPA from ₹830 to ₹646.</p>
+                    <span class="proj-metric">22% CPA Reduction</span>
                 </div>
-                <a href="#" class="proj-link-btn">View Details</a>
+                <a href="#" class="proj-link">View Case Study</a>
             </div>
 
             <div class="project-card reveal">
                 <div>
+                    <span class="proj-tag">Operations</span>
                     <div class="proj-title">SME Operations</div>
-                    <div class="proj-tag">Paper Recycling Analysis</div>
-                    <p style="color: #999; font-size: 0.9rem;">Identified 46–48°C heat stress as productivity bottleneck. Designed 4 low-cost ESG interventions.</p>
+                    <p style="color: #777;">Mitigated 48°C heat stress in recycling units via 4 low-cost ESG-aligned interventions.</p>
+                    <span class="proj-metric">ESG Alignment Strategy</span>
                 </div>
-                <a href="#" class="proj-link-btn">View Details</a>
+                <a href="#" class="proj-link">View Case Study</a>
             </div>
         </div>
     </section>
 
-    <!-- LEADERSHIP (REDESIGNED) -->
+    <!-- LEADERSHIP -->
     <section id="leadership">
         <div class="section-title reveal">Leadership</div>
         <div class="leadership-wrapper">
-            <!-- Tile 1 -->
             <div class="lead-tile reveal">
-                <div class="lead-tile-bg">IIM</div>
+                <div class="lead-tile-bg">IIMB</div>
                 <span class="lead-tile-org">IIM Bangalore</span>
                 <h4>Student Representative</h4>
-                <p class="lead-tile-desc">Liaison between students and administration. Managed academic communication and complex escalation handling.</p>
+                <p style="color: #777;">Strategic liaison managing administrative escalations and institutional communication.</p>
             </div>
             
-            <!-- Tile 2 -->
-            <div class="lead-tile reveal">
-                <div class="lead-tile-bg">PT</div>
-                <span class="lead-tile-org">IIM Bangalore</span>
-                <h4>Partnership Team</h4>
-                <p class="lead-tile-desc">Supported sponsor outreach and strategic pitch development for high-impact external collaborations.</p>
-            </div>
-
-            <!-- Tile 3 -->
-            <div class="lead-tile reveal">
-                <div class="lead-tile-bg">MC</div>
-                <span class="lead-tile-org">IIM Bangalore</span>
-                <h4>Media Cell Core</h4>
-                <p class="lead-tile-desc">Directed visual content strategy and event coverage for major institutional summits and internal engagements.</p>
-            </div>
-
-            <!-- Tile 4 -->
             <div class="lead-tile reveal">
                 <div class="lead-tile-bg">SCH</div>
-                <span class="lead-tile-org">School Leadership</span>
-                <h4>Vice-Captain & Proctor</h4>
-                <p class="lead-tile-desc">Orchestrated operations for 400+ students. Managed cross-functional discipline and event coordination.</p>
+                <span class="lead-tile-org">School Proctor</span>
+                <h4>Vice-Captain</h4>
+                <p style="color: #777;">Led operations for 400+ students, managing cross-functional coordination and discipline.</p>
             </div>
         </div>
     </section>
 
     <!-- SKILLS -->
     <section id="skills">
-        <div class="section-title reveal">Skills</div>
+        <div class="section-title reveal">Core Skills</div>
         <div class="skills-container reveal">
             <div class="skill-col">
-                <h3>Strategy & Business</h3>
-                <ul>
-                    <li>Market Research</li>
-                    <li>Business Model Development</li>
-                    <li>Operations Management</li>
-                    <li>Problem Solving</li>
-                </ul>
+                <h3>Strategy</h3>
+                <ul><li>Market Research</li><li>Business Modeling</li><li>Operations</li><li>Problem Solving</li></ul>
             </div>
             <div class="skill-col">
-                <h3>Analytics & Marketing</h3>
-                <ul>
-                    <li>Excel & Data Analysis</li>
-                    <li>Financial Analysis</li>
-                    <li>Social Media Strategy</li>
-                    <li>Content Planning</li>
-                </ul>
+                <h3>Analytics</h3>
+                <ul><li>Data Analysis</li><li>Financial Analysis</li><li>Content Strategy</li><li>Social Analytics</li></ul>
             </div>
             <div class="skill-col">
-                <h3>Tools & Tech</h3>
-                <ul>
-                    <li>PowerPoint & Canva</li>
-                    <li>Notion & Google Workspace</li>
-                    <li>HTML / CSS</li>
-                    <li>ChatGPT / AI Integration</li>
-                </ul>
+                <h3>Tools</h3>
+                <ul><li>Canva & PPT</li><li>Notion</li><li>Google Workspace</li><li>HTML/CSS</li></ul>
             </div>
         </div>
     </section>
@@ -696,34 +504,27 @@
     <section id="contact">
         <div class="contact-grid reveal">
             <div class="contact-left">
-                <h2>Let's drive <br>results together.</h2>
-                <p>Currently seeking high-impact internships and collaborative projects in Strategy, Analytics, and Digital Operations.</p>
-                <div class="contact-social-strip">
-                    <a href="https://www.linkedin.com/in/sparsh-aggarwal-2027/" target="_blank" class="social-link">LinkedIn</a>
-                    <a href="#" class="social-link">Portfolio</a>
-                </div>
+                <h2>Let's build <br>the future.</h2>
+                <p>Currently open to internships and digital operations projects. Based in Delhi NCR.</p>
             </div>
-            
-            <div class="contact-right">
-                <div class="contact-card">
-                    <div class="contact-info-item">
-                        <label>Email Address</label>
-                        <a href="mailto:sparsh.aggarwal24@iimb.ac.in">sparsh.aggarwal24@iimb.ac.in</a>
-                    </div>
-                    <div class="contact-info-item">
-                        <label>Phone Number</label>
-                        <a href="tel:+919811631672">+91 9811631672</a>
-                    </div>
-                    <div class="contact-info-item">
-                        <label>Location</label>
-                        <span>Delhi NCR, India</span>
-                    </div>
+            <div class="contact-card">
+                <div class="contact-info-item">
+                    <label>Email</label>
+                    <a href="mailto:sparsh.aggarwal24@iimb.ac.in">sparsh.aggarwal24@iimb.ac.in</a>
+                </div>
+                <div class="contact-info-item">
+                    <label>LinkedIn</label>
+                    <a href="https://www.linkedin.com/in/sparsh-aggarwal-2027/" target="_blank">Connect on LinkedIn</a>
+                </div>
+                <div class="contact-info-item">
+                    <label>Phone</label>
+                    <span>+91 9811631672</span>
                 </div>
             </div>
         </div>
-
-        <div class="footer-bottom reveal">
-            <p>&copy; 2026 Sparsh Aggarwal.</p>
+        <div style="margin-top: 5rem; border-top: 1px solid #222; padding-top: 2rem; font-size: 0.8rem; color: #444; display: flex; justify-content: space-between;">
+            <p>&copy; 2026 Sparsh Aggarwal. IIM Bangalore.</p>
+            <p>Strategy • Analytics • Operations</p>
         </div>
     </section>
 
@@ -731,27 +532,15 @@
         // --- MOBILE MENU ---
         const hamburger = document.getElementById('hamburger');
         const navLinks = document.getElementById('nav-links');
-        
-        hamburger.addEventListener('click', () => {
-            navLinks.classList.toggle('mobile-active');
-            hamburger.classList.toggle('active');
-        });
-
-        document.querySelectorAll('.nav-links a').forEach(link => {
-            link.addEventListener('click', () => {
-                navLinks.classList.remove('mobile-active');
-            });
-        });
+        hamburger.addEventListener('click', () => { navLinks.classList.toggle('mobile-active'); });
+        document.querySelectorAll('.nav-links a').forEach(link => { link.addEventListener('click', () => { navLinks.classList.remove('mobile-active'); }); });
 
         // --- SCROLL REVEAL ---
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('active');
-                }
+                if (entry.isIntersecting) { entry.target.classList.add('active'); }
             });
         }, { threshold: 0.1 });
-
         document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
     </script>
 </body>
