@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Portfolio of Sparsh Aggarwal - BBA Student at IIM Bangalore | Strategy, Analytics & Operations">
+    <meta name="description" content="Portfolio of Sparsh Aggarwal - BBA Student at IIM Bangalore | Strategy, Analytics, Research & Operations">
     <title>Sparsh Aggarwal | IIM Bangalore</title>
     
     <!-- Google Fonts: Manrope -->
@@ -12,11 +12,10 @@
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
     <style>
-        /* --- VARIABLES --- */
         :root {
             --bg-body: #050505;
             --bg-card: #0f0f0f;
-            --bg-glass: rgba(10, 10, 10, 0.7);
+            --bg-glass: rgba(10, 10, 10, 0.75);
             --text-primary: #ffffff;
             --text-secondary: #a3a3a3;
             --text-muted: #444444;
@@ -29,7 +28,7 @@
             --radius-lg: 24px;
         }
 
-        /* --- RESET & BASE --- */
+        /* RESET & BASE */
         * { margin: 0; padding: 0; box-sizing: border-box; }
         html { scroll-behavior: smooth; }
         
@@ -46,17 +45,16 @@
         img { max-width: 100%; display: block; }
 
         section {
-            padding: 8rem 1.5rem;
+            padding: 7rem 1.5rem;
             max-width: 1200px;
             margin: 0 auto;
         }
 
-        /* --- TYPOGRAPHY --- */
         h1, h2, h3, h4 { line-height: 1.1; letter-spacing: -0.03em; }
         
         .section-title {
-            font-size: 3rem;
-            margin-bottom: 5rem;
+            font-size: 2.8rem;
+            margin-bottom: 4rem;
             font-weight: 800;
             display: inline-block;
             background: linear-gradient(to bottom, #fff 0%, #777 100%);
@@ -65,16 +63,16 @@
             text-transform: capitalize;
         }
 
-        /* --- NAVIGATION --- */
+        /* NAVIGATION */
         nav {
             position: fixed;
-            top: 25px;
+            top: 20px;
             left: 50%;
             transform: translateX(-50%);
-            width: 90%;
+            width: 92%;
             max-width: 1100px;
             z-index: 1000;
-            padding: 1.2rem 2.5rem;
+            padding: 1.1rem 2.2rem;
             background: var(--bg-glass);
             backdrop-filter: blur(25px);
             -webkit-backdrop-filter: blur(25px);
@@ -86,8 +84,8 @@
             transition: var(--transition);
         }
 
-        .nav-logo { font-weight: 800; font-size: 1.2rem; letter-spacing: -0.02em; }
-        .nav-links { display: flex; gap: 1.5rem; }
+        .nav-logo { font-weight: 800; font-size: 1.15rem; letter-spacing: -0.02em; }
+        .nav-links { display: flex; gap: 1.4rem; }
         .nav-links a { font-size: 0.8rem; font-weight: 600; color: #bbb; }
         .nav-links a:hover { color: var(--accent); }
 
@@ -101,22 +99,21 @@
         }
         .bar { width: 24px; height: 2px; background-color: var(--text-primary); transition: var(--transition); }
 
-        /* --- HERO SECTION --- */
         #hero {
-            min-height: 95vh;
+            min-height: 92vh;
             display: flex;
             flex-direction: row;
             align-items: center;
             justify-content: space-between;
-            padding-top: 100px;
-            gap: 4rem;
+            padding-top: 110px;
+            gap: 3.5rem;
         }
 
         .hero-text-content { flex: 1.2; }
 
         .hero-img-container {
-            width: 320px; 
-            height: 420px; 
+            width: 310px; 
+            height: 400px; 
             flex-shrink: 0;
             border-radius: 30px; 
             overflow: hidden;
@@ -133,42 +130,95 @@
         }
 
         .hero-label {
-            font-size: 0.9rem;
+            font-size: 0.88rem;
             font-weight: 700;
             color: var(--accent);
             text-transform: uppercase;
-            letter-spacing: 0.2em;
-            margin-bottom: 2rem;
+            letter-spacing: 0.18em;
+            margin-bottom: 1.8rem;
             display: block;
         }
 
         .hero-title {
-            font-size: 4.5rem;
+            font-size: 4.2rem;
             font-weight: 800;
-            margin-bottom: 1.5rem;
+            margin-bottom: 1.2rem;
             background: linear-gradient(to bottom, #fff 40%, #888 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
 
-        .hero-subtitle { font-size: 1.5rem; color: #999; font-weight: 400; margin-bottom: 3rem; }
+        .hero-subtitle { font-size: 1.4rem; color: #999; font-weight: 400; margin-bottom: 2.5rem; }
 
-        @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-20px); } }
+        @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-15px); } }
 
-        .hero-buttons { display: flex; gap: 1.5rem; flex-wrap: wrap; }
-        .btn-main { padding: 1.2rem 2.5rem; background: var(--text-primary); color: #000; border-radius: 100px; font-weight: 700; font-size: 1rem; cursor: pointer; border: none; }
-        .btn-main:hover { background: var(--accent); color: #fff; transform: scale(1.05); }
-        .btn-outline { padding: 1.2rem 2.5rem; background: transparent; color: #fff; border: 1px solid #333; border-radius: 100px; font-weight: 700; font-size: 1rem; cursor: pointer; }
+        .hero-buttons { display: flex; gap: 1.2rem; flex-wrap: wrap; }
+        .btn-main { padding: 1.1rem 2.2rem; background: var(--text-primary); color: #000; border-radius: 100px; font-weight: 700; font-size: 0.95rem; cursor: pointer; border: none; }
+        .btn-main:hover { background: var(--accent); color: #fff; transform: scale(1.04); }
+        .btn-outline { padding: 1.1rem 2.2rem; background: transparent; color: #fff; border: 1px solid #333; border-radius: 100px; font-weight: 700; font-size: 0.95rem; cursor: pointer; }
         .btn-outline:hover { border-color: var(--accent); color: var(--accent); }
 
-        /* --- ACHIEVEMENTS SECTION (MINIMAL) --- */
-        #achievements {
-            padding: 4rem 1.5rem;
+        .research-grid { display: grid; grid-template-columns: 1fr; gap: 2rem; }
+        .research-card {
+            background: #0a0a0a;
+            border: 1px solid var(--border);
+            padding: 2.5rem;
+            border-radius: 24px;
+            transition: var(--transition);
         }
+        .research-card:hover { border-color: var(--accent); background: #111; }
+        .research-badge {
+            display: inline-block;
+            font-size: 0.75rem;
+            padding: 5px 12px;
+            background: rgba(234, 88, 12, 0.15);
+            color: var(--accent);
+            border-radius: 50px;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        .research-title { font-size: 1.5rem; font-weight: 800; margin-bottom: 0.8rem; color: #fff; }
+        .research-meta { font-size: 0.95rem; color: #888; margin-bottom: 1.2rem; font-weight: 600; }
+        .research-desc { color: var(--text-secondary); font-size: 1rem; line-height: 1.7; }
+        .research-bullets { margin-top: 1rem; margin-bottom: 1.5rem; padding-left: 1.2rem; color: var(--text-secondary); }
+        .research-bullets li { margin-bottom: 0.8rem; list-style-type: disc; }
+        
+        /* Research Link Buttons */
+        .research-action-row {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-top: 1.5rem;
+            padding-top: 1.2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.06);
+        }
+        .research-link-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: var(--accent);
+            background: rgba(234, 88, 12, 0.08);
+            border: 1px solid rgba(234, 88, 12, 0.25);
+            padding: 0.6rem 1.2rem;
+            border-radius: 100px;
+            transition: var(--transition);
+        }
+        .research-link-btn:hover {
+            background: var(--accent);
+            color: #fff;
+            transform: translateY(-2px);
+        }
+
+        /* ACHIEVEMENTS STRIP */
+        #achievements { padding: 3rem 1.5rem; }
         .achievement-strip {
             background: #0a0a0a;
             border: 1px solid var(--border);
-            padding: 2rem 3rem;
+            padding: 2rem 2.5rem;
             border-radius: 20px;
             display: flex;
             align-items: center;
@@ -176,71 +226,36 @@
             gap: 2rem;
             transition: var(--transition);
         }
-        .achievement-strip:hover {
-            border-color: var(--accent);
-        }
+        .achievement-strip:hover { border-color: var(--accent); }
         .ach-rank-mini {
-            font-size: 1.5rem;
+            font-size: 1.6rem;
             font-weight: 800;
             color: var(--accent);
             white-space: nowrap;
         }
-        .ach-text-mini {
-            font-size: 1.1rem;
-            color: var(--text-secondary);
-            flex: 1;
-        }
+        .ach-text-mini { font-size: 1.05rem; color: var(--text-secondary); flex: 1; }
         .ach-text-mini strong { color: #fff; }
 
-        /* --- EDUCATION --- */
-        .edu-container {
-            display: flex;
-            flex-direction: column;
-            gap: 4rem;
-        }
-
+        /* EDUCATION */
+        .edu-container { display: flex; flex-direction: column; gap: 3.5rem; }
         .edu-item {
             display: grid;
-            grid-template-columns: 0.5fr 1fr;
-            padding-bottom: 4rem;
+            grid-template-columns: 0.45fr 1fr;
+            padding-bottom: 3.5rem;
             border-bottom: 1px solid var(--border);
             position: relative;
         }
-
         .edu-item:last-child { border-bottom: none; }
-
-        .edu-meta {
-            font-size: 1rem;
-            font-weight: 800;
-            color: var(--accent);
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-        }
-
-        .edu-info h3 {
-            font-size: 2.2rem;
-            font-weight: 800;
-            margin-bottom: 0.5rem;
-        }
-
-        .edu-info .org {
-            font-size: 1.2rem;
-            color: var(--text-secondary);
-            margin-bottom: 1.5rem;
-        }
-
-        .edu-info .details {
-            color: #777;
-            font-size: 1rem;
-            max-width: 600px;
-        }
-
+        .edu-meta { font-size: 0.95rem; font-weight: 800; color: var(--accent); text-transform: uppercase; letter-spacing: 0.1em; }
+        .edu-info h3 { font-size: 2rem; font-weight: 800; margin-bottom: 0.4rem; }
+        .edu-info .org { font-size: 1.15rem; color: var(--text-secondary); margin-bottom: 1rem; }
+        .edu-info .details { color: #777; font-size: 0.98rem; max-width: 650px; }
         .edu-item .bg-text {
             position: absolute;
             right: 0;
             top: 50%;
             transform: translateY(-50%);
-            font-size: 8rem;
+            font-size: 7.5rem;
             font-weight: 900;
             color: rgba(255, 255, 255, 0.02);
             pointer-events: none;
@@ -248,78 +263,77 @@
             text-transform: uppercase;
         }
 
-        /* --- EXPERIENCE SECTION --- */
+        /* EXPERIENCE SECTION */
         .exp-row {
             display: flex;
             align-items: flex-start;
-            padding: 4rem 2rem;
+            padding: 3.5rem 2rem;
             margin: 0 -2rem;
             border-bottom: 1px solid var(--border);
             transition: var(--transition);
             position: relative;
         }
-
-        .exp-row:hover { background: rgba(255,255,255,0.02); padding-left: 3rem; }
+        .exp-row:hover { background: rgba(255,255,255,0.02); padding-left: 2.8rem; }
         .exp-row::before { content: ''; position: absolute; left: 0; top: 0; height: 100%; width: 4px; background: var(--accent); transform: scaleY(0); transition: var(--transition); transform-origin: top; }
         .exp-row:hover::before { transform: scaleY(1); }
-
-        .exp-date { flex: 0 0 25%; font-size: 0.95rem; font-weight: 700; color: #555; }
+        .exp-date { flex: 0 0 25%; font-size: 0.9rem; font-weight: 700; color: #555; }
         .exp-row:hover .exp-date { color: var(--accent); }
         .exp-content { flex: 1; }
-        .exp-role { font-size: 1.8rem; font-weight: 700; margin-bottom: 0.5rem; }
-        .exp-company { font-size: 1.1rem; color: var(--accent); font-weight: 600; margin-bottom: 1.5rem; display: block; }
-        .exp-desc { color: var(--text-secondary); font-size: 1.05rem; }
+        .exp-role { font-size: 1.65rem; font-weight: 700; margin-bottom: 0.4rem; }
+        .exp-company { font-size: 1.05rem; color: var(--accent); font-weight: 600; margin-bottom: 1.2rem; display: block; }
+        .exp-desc { color: var(--text-secondary); font-size: 1rem; }
 
-        /* --- PROJECTS SECTION --- */
+        /* PROJECTS SECTION */
         .bento-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem; }
         .project-card {
-            background: #0a0a0a; border: 1px solid var(--border); padding: 3rem; border-radius: 30px;
+            background: #0a0a0a; border: 1px solid var(--border); padding: 2.8rem; border-radius: 28px;
             display: flex; flex-direction: column; justify-content: space-between; transition: var(--transition);
         }
-        .project-card:hover { border-color: var(--accent); transform: translateY(-10px); background: #111; }
-        .proj-title { font-size: 1.8rem; font-weight: 800; margin-bottom: 1rem; }
-        .proj-tag { display: inline-block; font-size: 0.75rem; padding: 6px 14px; background: #1a1a1a; border-radius: 50px; color: #888; margin-bottom: 2rem; }
-        .proj-metric { font-weight: 800; color: #fff; margin-top: 1rem; display: block; }
-        .proj-link { margin-top: 2rem; font-weight: 800; color: var(--accent); font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.1em; }
+        .project-card:hover { border-color: var(--accent); transform: translateY(-8px); background: #111; }
+        .proj-title { font-size: 1.65rem; font-weight: 800; margin-bottom: 0.8rem; }
+        .proj-tag { display: inline-block; font-size: 0.75rem; padding: 5px 12px; background: #1a1a1a; border-radius: 50px; color: #888; margin-bottom: 1.5rem; }
+        .proj-metric { font-weight: 800; color: #fff; margin-top: 1rem; display: block; font-size: 0.95rem; }
+        .proj-link { margin-top: 1.8rem; font-weight: 800; color: var(--accent); font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.1em; display: inline-block; }
 
-        /* --- LEADERSHIP TILES --- */
+        /* LEADERSHIP TILES */
         .leadership-wrapper { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem; }
-        .lead-tile { position: relative; background: var(--bg-card); border: 1px solid var(--border); padding: 4rem 3rem; border-radius: 32px; overflow: hidden; transition: var(--transition); display: flex; flex-direction: column; justify-content: flex-end; min-height: 320px; }
+        .lead-tile { position: relative; background: var(--bg-card); border: 1px solid var(--border); padding: 3.5rem 2.5rem; border-radius: 28px; overflow: hidden; transition: var(--transition); display: flex; flex-direction: column; justify-content: flex-end; min-height: 280px; }
         .lead-tile:hover { border-color: var(--accent); transform: scale(1.02); }
-        .lead-tile-bg { position: absolute; top: -10px; right: -10px; font-size: 12rem; font-weight: 900; color: rgba(255, 255, 255, 0.03); pointer-events: none; }
-        .lead-tile-org { font-size: 0.8rem; font-weight: 800; color: var(--accent); text-transform: uppercase; margin-bottom: 1rem; display: block; }
-        .lead-tile h4 { font-size: 2rem; font-weight: 800; margin-bottom: 1rem; }
+        .lead-tile-bg { position: absolute; top: -10px; right: -10px; font-size: 10rem; font-weight: 900; color: rgba(255, 255, 255, 0.03); pointer-events: none; }
+        .lead-tile-org { font-size: 0.8rem; font-weight: 800; color: var(--accent); text-transform: uppercase; margin-bottom: 0.8rem; display: block; }
+        .lead-tile h4 { font-size: 1.8rem; font-weight: 800; margin-bottom: 0.8rem; }
 
-        /* --- SKILLS MATRIX --- */
-        .skills-container { display: grid; grid-template-columns: repeat(3, 1fr); gap: 4rem; }
-        .skill-col h3 { font-size: 1.2rem; color: #fff; margin-bottom: 2rem; padding-bottom: 1rem; border-bottom: 1px solid var(--accent); text-transform: uppercase; }
-        .skill-col li { margin-bottom: 1rem; font-size: 1rem; color: #888; }
-        .skill-col li::before { content: "•"; color: var(--accent); margin-right: 12px; }
+        /* SKILLS MATRIX */
+        .skills-container { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2.5rem; }
+        .skill-col h3 { font-size: 1.1rem; color: #fff; margin-bottom: 1.5rem; padding-bottom: 0.8rem; border-bottom: 1px solid var(--accent); text-transform: uppercase; }
+        .skill-col li { margin-bottom: 0.8rem; font-size: 0.95rem; color: #888; }
+        .skill-col li::before { content: "•"; color: var(--accent); margin-right: 10px; }
 
-        /* --- CONTACT SECTION --- */
-        #contact { padding: 10rem 1.5rem; background: radial-gradient(circle at top left, rgba(234, 88, 12, 0.08), transparent 50%); }
-        .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: center; }
-        .contact-left h2 { font-size: 5rem; font-weight: 800; line-height: 0.9; margin-bottom: 2rem; }
-        .contact-card { background: #0a0a0a; border: 1px solid var(--border); padding: 4rem; border-radius: 40px; }
-        .contact-info-item { margin-bottom: 3rem; }
-        .contact-info-item label { font-size: 0.8rem; font-weight: 800; color: var(--accent); text-transform: uppercase; margin-bottom: 1rem; display: block; }
-        .contact-info-item a, .contact-info-item span { font-size: 1.8rem; font-weight: 700; color: #fff; word-break: break-all; }
+        /* CONTACT SECTION */
+        #contact { padding: 8rem 1.5rem; background: radial-gradient(circle at top left, rgba(234, 88, 12, 0.08), transparent 50%); }
+        .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; }
+        .contact-left h2 { font-size: 4.5rem; font-weight: 800; line-height: 0.95; margin-bottom: 1.8rem; }
+        .contact-card { background: #0a0a0a; border: 1px solid var(--border); padding: 3.5rem; border-radius: 36px; }
+        .contact-info-item { margin-bottom: 2.5rem; }
+        .contact-info-item:last-child { margin-bottom: 0; }
+        .contact-info-item label { font-size: 0.78rem; font-weight: 800; color: var(--accent); text-transform: uppercase; margin-bottom: 0.6rem; display: block; }
+        .contact-info-item a, .contact-info-item span { font-size: 1.5rem; font-weight: 700; color: #fff; word-break: break-all; }
         
-        /* --- REVEAL ANIMATIONS --- */
-        .reveal { opacity: 0; transform: translateY(40px); transition: all 1s cubic-bezier(0.23, 1, 0.32, 1); }
+        /* REVEAL ANIMATIONS */
+        .reveal { opacity: 0; transform: translateY(35px); transition: all 0.9s cubic-bezier(0.23, 1, 0.32, 1); }
         .reveal.active { opacity: 1; transform: translateY(0); }
-        .reveal { transition-delay: calc(var(--order) * 150ms); }
+        .reveal { transition-delay: calc(var(--order) * 120ms); }
 
-        /* --- RESPONSIVE ADJUSTMENTS --- */
+        /* RESPONSIVE ADJUSTMENTS */
         @media (max-width: 1024px) {
-            .section-title { font-size: 2.5rem; margin-bottom: 3rem; }
-            .hero-title { font-size: 3.5rem; }
-            .contact-left h2 { font-size: 4rem; }
-            .skills-container { gap: 2rem; }
+            .section-title { font-size: 2.4rem; margin-bottom: 3rem; }
+            .hero-title { font-size: 3.2rem; }
+            .contact-left h2 { font-size: 3.8rem; }
+            .skills-container { grid-template-columns: repeat(2, 1fr); gap: 2.5rem; }
         }
 
         @media (max-width: 900px) {
-            section { padding: 5rem 1.5rem; }
+            section { padding: 4.5rem 1.5rem; }
             nav { width: 95%; padding: 1rem 1.5rem; }
             .hamburger { display: flex; }
             .nav-links { 
@@ -338,37 +352,37 @@
                 display: flex;
             }
             .nav-links.mobile-active { transform: translateX(0); pointer-events: all; }
-            .nav-links a { font-size: 1.5rem; font-weight: 700; }
-            #hero { flex-direction: column-reverse; text-align: center; justify-content: center; padding-top: 120px; gap: 2.5rem; }
+            .nav-links a { font-size: 1.4rem; font-weight: 700; }
+            #hero { flex-direction: column-reverse; text-align: center; justify-content: center; padding-top: 110px; gap: 2.2rem; }
             .hero-text-content { width: 100%; }
-            .hero-img-container { width: 240px; height: 320px; margin: 0 auto; }
-            .hero-title { font-size: 2.8rem; }
-            .hero-name { font-size: 2rem; }
+            .hero-img-container { width: 230px; height: 300px; margin: 0 auto; }
+            .hero-title { font-size: 2.6rem; }
+            .hero-name { font-size: 1.9rem; }
             .hero-buttons { justify-content: center; }
-            .achievement-strip { flex-direction: column; text-align: center; padding: 2.5rem; gap: 1rem; }
-            .ach-rank-mini { font-size: 2.5rem; }
-            .edu-item { grid-template-columns: 1fr; gap: 1rem; }
-            .edu-info h3 { font-size: 1.8rem; }
+            .achievement-strip { flex-direction: column; text-align: center; padding: 2rem; gap: 1rem; }
+            .ach-rank-mini { font-size: 2.2rem; }
+            .edu-item { grid-template-columns: 1fr; gap: 0.8rem; }
+            .edu-info h3 { font-size: 1.6rem; }
             .bg-text { display: none; }
-            .exp-row { flex-direction: column; width: 100%; margin: 0; padding: 2.5rem 1rem; }
-            .exp-date { margin-bottom: 1rem; font-size: 0.85rem; }
-            .exp-role { font-size: 1.5rem; }
-            .exp-row:hover { padding-left: 1.5rem; }
+            .exp-row { flex-direction: column; width: 100%; margin: 0; padding: 2.2rem 1rem; }
+            .exp-date { margin-bottom: 0.8rem; font-size: 0.85rem; }
+            .exp-role { font-size: 1.4rem; }
+            .exp-row:hover { padding-left: 1.2rem; }
             .bento-grid, .leadership-wrapper, .skills-container, .contact-grid { grid-template-columns: 1fr; gap: 2rem; }
             .project-card, .lead-tile { padding: 2rem; min-height: auto; }
-            .lead-tile-bg { font-size: 8rem; }
-            .lead-tile h4 { font-size: 1.5rem; }
-            .contact-left h2 { font-size: 2.8rem; text-align: center; }
+            .lead-tile-bg { font-size: 7rem; }
+            .lead-tile h4 { font-size: 1.4rem; }
+            .contact-left h2 { font-size: 2.6rem; text-align: center; }
             .contact-left { text-align: center; }
             .contact-card { padding: 2rem; border-radius: 24px; }
-            .contact-info-item a, .contact-info-item span { font-size: 1.3rem; }
+            .contact-info-item a, .contact-info-item span { font-size: 1.2rem; }
             .footer-content { flex-direction: column; gap: 1rem; text-align: center; }
         }
 
         @media (max-width: 480px) {
-            .hero-title { font-size: 2.2rem; }
-            .btn-main, .btn-outline { width: 100%; text-align: center; padding: 1rem; }
-            .section-title { font-size: 2rem; }
+            .hero-title { font-size: 2.1rem; }
+            .btn-main, .btn-outline { width: 100%; text-align: center; padding: 0.9rem; }
+            .section-title { font-size: 1.8rem; }
         }
     </style>
 </head>
@@ -385,6 +399,7 @@
         <ul class="nav-links" id="nav-links">
             <li><a href="#about">About</a></li>
             <li><a href="#education">Education</a></li>
+            <li><a href="#research">Research</a></li>
             <li><a href="#experience">Experience</a></li>
             <li><a href="#achievements">Achievements</a></li>
             <li><a href="#projects">Projects</a></li>
@@ -399,16 +414,16 @@
         <div class="hero-text-content">
             <h2 class="hero-name reveal">Sparsh Aggarwal</h2>
             <span class="hero-label reveal">BBA @ IIM Bangalore</span>
-            <h1 class="hero-title reveal">Digital Business & Strategy.</h1>
-            <p class="hero-subtitle reveal">Turning operational insights into scalable digital ventures.</p>
+            <h1 class="hero-title reveal">Digital Business, Policy & Strategy.</h1>
+            <p class="hero-subtitle reveal">Bridging rigorous research, financial modeling, and operational execution.</p>
             <div class="hero-buttons reveal">
-                <a href="Sparsh_Aggarwal_Resume.pdf" download class="btn-main">Download CV</a>
+                <!-- Replace Sparsh_aggarwal_Resume.pdf with your hosted resume URL if needed -->
+                <a href="Sparsh_aggarwal_Resume.pdf" download class="btn-main">Download Resume</a>
                 <a href="https://www.linkedin.com/in/sparsh-aggarwal-2027/" target="_blank" class="btn-outline">LinkedIn</a>
             </div>
         </div>
         <div class="hero-img-container">
-            <!-- Profile Placeholder -->
-            <img src="IMG-20250824-WA0097~3.jpg" alt="Sparsh Profile">
+            <img src="https://ui-avatars.com/api/?name=Sparsh+Aggarwal&background=111&color=ea580c&size=512&font-size=0.33" alt="Sparsh Profile">
         </div>
     </section>
 
@@ -416,8 +431,8 @@
     <section id="about">
         <div class="section-title reveal">About Me</div>
         <div class="reveal">
-            <p style="color: #a3a3a3; line-height: 2; font-size: 1.25rem; max-width: 900px; font-weight: 300;">
-                Strategic BBA student at <strong style="color: #fff;">IIM Bangalore</strong> specializing in Digital Business & Entrepreneurship. I bridge the gap between rigorous analytics and creative strategy, with a focus on unit economics and operational optimization. From scaling zero-cost acquisition frameworks to mitigating heat stress in recycling SMEs, my work is driven by <span style="color: var(--accent);">measurable results.</span>
+            <p style="color: #a3a3a3; line-height: 2; font-size: 1.25rem; max-width: 950px; font-weight: 300;">
+                BBA student at <strong style="color: #fff;">IIM Bangalore</strong> specializing in Digital Business & Entrepreneurship with additional credentials in International Affairs & Diplomacy (<strong style="color: #fff;">80%</strong>). I integrate quantitative financial valuation, Indigenous Knowledge Systems (IKS) policy research, and go-to-market operational strategies. My work spans empirical startup valuations, published academic research on trust gaps in India's Digital Public Infrastructure, and hands-on business operations.
             </p>
         </div>
     </section>
@@ -426,129 +441,220 @@
     <section id="education">
         <div class="section-title reveal">Education</div>
         <div class="edu-container">
+            <!-- IIMB -->
             <div class="edu-item reveal" style="--order: 1">
                 <div class="bg-text">IIMB</div>
-                <div class="edu-meta">Sep 2024 — 2027</div>
+                <div class="edu-meta">Sep 2024 — Jun 2027</div>
                 <div class="edu-info">
                     <h3>BBA — Digital Business & Entrepreneurship</h3>
                     <p class="org">Indian Institute of Management Bangalore</p>
-                    <p class="details">Specializing in digital ecosystem strategies, unit economics, and new venture creation. Actively applying frameworks to sustainable fashion and SME operations.</p>
+                    <p class="details">Specializing in digital business models, unit economics, strategic planning, venture valuation, and capstone research projects.</p>
                 </div>
             </div>
+            <!-- IIGL -->
             <div class="edu-item reveal" style="--order: 2">
                 <div class="bg-text">IIGL</div>
-                <div class="edu-meta">2025 — 2026</div>
+                <div class="edu-meta">Oct 2025 — Apr 2026</div>
                 <div class="edu-info">
-                    <h3>Intl. Affairs & Diplomacy</h3>
-                    <p class="org">Indian Institute of Governance and Leadership</p>
-                    <p class="details">Diploma focusing on global governance, leadership dynamics, and international relations.</p>
+                    <h3>Diploma in International Affairs & Diplomacy</h3>
+                    <p class="org">Indian Institute of Governance and Leadership | <strong style="color: #fff;">80% Aggregate</strong></p>
+                    <p class="details">Focused on global governance, multilateral forums, trans-border terrorism frameworks, and bilateral trade economics (BTIA).</p>
                 </div>
             </div>
+            <!-- DPSG -->
             <div class="edu-item reveal" style="--order: 3">
                 <div class="bg-text">DPSG</div>
                 <div class="edu-meta">Graduated 2023</div>
                 <div class="edu-info">
                     <h3>Class XII (Commerce with Maths)</h3>
-                    <p class="org">DPSG Faridabad</p>
-                    <p class="details">Aggregated <strong style="color: #fff;">75%</strong> in Class XII. Prioritized rigorous quantitative and business foundational subjects.</p>
+                    <p class="org">DPSG Faridabad | <strong style="color: #fff;">75% Score</strong></p>
+                    <p class="details">Rigorous focus on advanced commercial concepts, quantitative mathematics, and economic fundamentals.</p>
                 </div>
             </div>
+            <!-- Presidium -->
             <div class="edu-item reveal" style="--order: 4">
                 <div class="bg-text">PRES</div>
                 <div class="edu-meta">Graduated 2021</div>
                 <div class="edu-info">
                     <h3>Class X</h3>
-                    <p class="org">Presidium Faridabad</p>
-                    <p class="details">Aggregated <strong style="color: #fff;">85%</strong>. Developed early leadership skills and active participation in school activities.</p>
+                    <p class="org">Presidium Faridabad | <strong style="color: #fff;">85% Score</strong></p>
+                    <p class="details">Foundational academic excellence and early entry into school leadership bodies.</p>
                 </div>
             </div>
+        </div>
+    </section>
+
+    <!-- RESEARCH & PUBLICATIONS -->
+    <section id="research">
+        <div class="section-title reveal">Research & Publications</div>
+        <div class="research-grid">
+            
+            <!-- Conference Paper -->
+            <div class="research-card reveal" style="--order: 1">
+                <span class="research-badge">National Conference Paper • Amity University (IIM-B Affiliation)</span>
+                <div class="research-title">E-Governance and Citizen Trust in Digital Public Service Platforms: An IKS Perspective</div>
+                <p class="research-meta">Presented at the 9th National Hybrid Conference on Integrating Diverse Indigenous Knowledge Systems for SDGs (2026)</p>
+                <p class="research-desc">Applied Indigenous Knowledge Systems (IKS) frameworks to critically analyze citizen trust gaps across India's Digital Public Infrastructure (Aadhaar, UPI, DigiLocker). Formulated strategic policy recommendations prioritizing trust-by-design architecture and relational accountability principles.</p>
+                
+                <!-- WORKING RESEARCH LINK BUTTONS -->
+                <div class="research-action-row">
+                    <!-- Replace # with your Google Drive / SSRN / Conference Link -->
+                    <a href="#" target="_blank" rel="noopener noreferrer" class="research-link-btn">
+                        <span>View Paper / SSRN</span> ↗
+                    </a>
+                    <a href="#" target="_blank" rel="noopener noreferrer" class="research-link-btn">
+                        <span>Presentation Slides</span> ↗
+                    </a>
+                </div>
+            </div>
+
+            <!-- IIGL Policy Research -->
+            <div class="research-card reveal" style="--order: 2">
+                <span class="research-badge">Academic Policy Papers • IIGL Diploma (2025–2026)</span>
+                <div class="research-title">Global Diplomacy, Trade & Security Architecture Papers</div>
+                <p class="research-meta">Series of strategic geopolitical analyses on multilateral trade and diplomatic postures</p>
+                <ul class="research-bullets">
+                    <li><strong>India's Foreign Policy in a Changing Global Order:</strong> Evaluated strategic repositioning across multilateral forums, Indo-Pacific alignments, and great power competition dynamics.</li>
+                    <li><strong>India-EU Bilateral Trade & Investment Agreement (BTIA):</strong> Examined tariff barriers, regulatory negotiation friction, and macro-economic implications of the stalled BTIA across key commercial sectors.</li>
+                    <li><strong>India & Trans-Border Terrorism Frameworks:</strong> Assessed diplomatic postures and multilateral engagements within international security bodies.</li>
+                    <li><strong>UN Peace & Security Architecture:</strong> Analyzed structural reform prerequisites for UN peacekeeping and collective security mechanisms.</li>
+                </ul>
+
+                <!-- WORKING RESEARCH LINK BUTTONS -->
+                <div class="research-action-row">
+                    <!-- Replace # with your Google Drive / PDF folder link -->
+                    <a href="#" target="_blank" rel="noopener noreferrer" class="research-link-btn">
+                        <span>Read Policy Briefs</span> ↗
+                    </a>
+                    <a href="#" target="_blank" rel="noopener noreferrer" class="research-link-btn">
+                        <span>BTIA Trade Analysis</span> ↗
+                    </a>
+                </div>
+            </div>
+
         </div>
     </section>
 
     <!-- EXPERIENCE -->
     <section id="experience">
         <div class="section-title reveal">Experience</div>
+        
         <div class="exp-row reveal" style="--order: 1">
-            <div class="exp-date">Ongoing</div>
+            <div class="exp-date">2022 — Present</div>
             <div class="exp-content">
                 <div class="exp-role">Business Operations</div>
-                <span class="exp-company">Family Business</span>
-                <p class="exp-desc">Managed order flow and vendor coordination. Improved workflow visibility and supported demand assessment for strategic decision-making.</p>
+                <span class="exp-company">Family Business (Paper Recycling Enterprise)</span>
+                <p class="exp-desc">Managed procurement, order fulfillment, vendor coordination, and client servicing. Conducted procurement cost modeling and analyzed demand trends to streamline inventory turnover and operational planning.</p>
             </div>
         </div>
+
         <div class="exp-row reveal" style="--order: 2">
-            <div class="exp-date">2025</div>
+            <div class="exp-date">2022 — 2024</div>
             <div class="exp-content">
-                <div class="exp-role">Web Development</div>
+                <div class="exp-role">Web Developer</div>
                 <span class="exp-company">Academic & Freelance</span>
-                <p class="exp-desc">Designed 20+ responsive sites. Translated complex business logic into user-centric UI/UX frameworks.</p>
+                <p class="exp-desc">Designed and deployed 20+ responsive websites. Translated complex client business requirements into functional, accessible UI/UX components aligned with brand identity.</p>
             </div>
         </div>
+
         <div class="exp-row reveal" style="--order: 3">
-            <div class="exp-date">2025</div>
+            <div class="exp-date">2023 / 2025</div>
             <div class="exp-content">
                 <div class="exp-role">Content Research Intern</div>
                 <span class="exp-company">Social Media Newsroom</span>
-                <p class="exp-desc">Real-time trend analysis on Instagram and X, optimizing content relevance and deployment speed.</p>
+                <p class="exp-desc">Delivered real-time social trend analysis on Instagram and X (Twitter), improving editorial content relevance, engagement verification, and publishing lead time.</p>
             </div>
         </div>
     </section>
 
-    <!-- ACHIEVEMENTS (MINIMAL VERSION) -->
+    <!-- ACHIEVEMENTS -->
     <section id="achievements">
         <div class="section-title reveal">Achievements</div>
         <div class="achievement-strip reveal">
-            <div class="ach-rank-mini">#02 Rank</div>
+            <div class="ach-rank-mini">#02 National Rank</div>
             <div class="ach-text-mini">
-                Strataverse — SSCBS, DU. Evaluated a fintech startup’s <strong>₹1,200 Cr valuation</strong> through financial analysis and investment recommendation.
+                <strong>Strataverse (SSCBS, University of Delhi - 2026)</strong>: Evaluated a fintech startup's <strong>₹1,200 Cr valuation</strong> using DCF, comparable company multiples, and structured investment recommendations.
             </div>
         </div>
     </section>
 
     <!-- PROJECTS -->
     <section id="projects">
-        <div class="section-title reveal">Projects</div>
+        <div class="section-title reveal">Projects & Capstones</div>
         <div class="bento-grid">
-            <!-- C.N.V.R.T (Moved to 1st) -->
+            
+            <!-- C.N.V.R.T -->
             <div class="project-card reveal" style="--order: 1">
                 <div>
-                    <span class="proj-tag">Entrepreneurship</span>
-                    <div class="proj-title">C.N.V.R.T</div>
-                    <p style="color: #777;">Sustainable fashion venture targeting fast fashion inefficiencies. Led 6-member team and researched 90+ consumers to identify styling over sustainability intent.</p>
-                    <span class="proj-metric">33% Margin | 2.1k Unit break-even</span>
+                    <span class="proj-tag">Entrepreneurial Strategy • IIM-B</span>
+                    <div class="proj-title">C.N.V.R.T Sustainable Fashion</div>
+                    <p style="color: #777;">Led 6-member team conducting 90+ surveys and 12 interviews. Built full venture unit economics (pricing, margins, break-even projections) for investor proposal.</p>
+                    <span class="proj-metric">33% Margin | 2.1k Unit Break-even</span>
                 </div>
-                <a href="C.N.V.R.T_compressed.pdf" class="proj-link">View Project</a>
+                <!-- Replace # with project link -->
+                <a href="#" target="_blank" rel="noopener noreferrer" class="proj-link">View Case Study ↗</a>
             </div>
 
-            <!-- Blue Tokai (Moved to 2nd) -->
+            <!-- Blue Tokai Coffee Roasters -->
             <div class="project-card reveal" style="--order: 2">
                 <div>
-                    <span class="proj-tag">Strategy</span>
-                    <div class="proj-title">Blue Tokai Coffee Roasters</div>
-                    <p style="color: #777;">Identified gap between high reach and low engagement. Derived insight that storytelling and education drive performance. Designed full-funnel content strategy.</p>
-                    <span class="proj-metric">Engagement-Centric Strategy</span>
+                    <span class="proj-tag">Digital Strategy • Blue Tokai</span>
+                    <div class="proj-title">Blue Tokai Social Media Strategy</div>
+                    <p style="color: #777;">Identified gap between high reach and low engagement. Derived insight that storytelling and brewing education drive performance; designed full-funnel content strategy and KPI framework.</p>
+                    <span class="proj-metric">Engagement-Centric KPI Framework</span>
                 </div>
-                <a href="BLUE TOKAI _compressed.pdf" class="proj-link">View Project</a>
+                <!-- Replace # with project link -->
+                <a href="#" target="_blank" rel="noopener noreferrer" class="proj-link">View Strategy Deck ↗</a>
             </div>
 
+            <!-- Cirkit Electro -->
             <div class="project-card reveal" style="--order: 3">
                 <div>
-                    <span class="proj-tag">Acquisition</span>
-                    <div class="proj-title">The Outreach Project</div>
-                    <p style="color: #777;">Achieved 100% conversion (3/3 clients) generating ₹3,000 in 4 hours using zero-cost strategy.</p>
-                    <span class="proj-metric">100% Conversion Achievement</span>
+                    <span class="proj-tag">Business Development • Live Project</span>
+                    <div class="proj-title">Cirkit Electro Components (IIM-B)</div>
+                    <p style="color: #777;">Developing a market-entry strategy for the localization of electronic component distribution in India. Conducting competitor benchmarking and evaluating global manufacturer partnerships.</p>
+                    <span class="proj-metric">Market Localization Strategy</span>
                 </div>
-                
+                <!-- Replace # with project link -->
+                <a href="#" target="_blank" rel="noopener noreferrer" class="proj-link">View Overview ↗</a>
             </div>
+
+            <!-- SMASHIT -->
             <div class="project-card reveal" style="--order: 4">
                 <div>
-                    <span class="proj-tag">Operations</span>
-                    <div class="proj-title">SME Operations</div>
-                    <p style="color: #777;">Mitigated 48°C heat stress in recycling units via 4 low-cost ESG-aligned interventions.</p>
-                    <span class="proj-metric">ESG Alignment Strategy</span>
+                    <span class="proj-tag">New Venture Concept • IIM-B</span>
+                    <div class="proj-title">SMASHIT — Vegetarian QSR</div>
+                    <p style="color: #777;">Independently conceptualized a premium vegetarian smash-burger brand. Built market sizing, validation models, scarcity marketing, and creator growth frameworks.</p>
+                    <span class="proj-metric">₹2.43 Cr Annual Revenue Potential</span>
                 </div>
-                <a href="https://youtu.be/Suvj8sx4ufY?si=OWX0wnVzuf_dCz5E" class="proj-link">View Project</a>
+                <!-- Replace # with project link -->
+                <a href="#" target="_blank" rel="noopener noreferrer" class="proj-link">View Pitch Deck ↗</a>
             </div>
+
+            <!-- CarbonKey -->
+            <div class="project-card reveal" style="--order: 5">
+                <div>
+                    <span class="proj-tag">Blockchain Capstone • IIM-B</span>
+                    <div class="proj-title">CarbonKey Tokenization Platform</div>
+                    <p style="color: #777;">Researched verification barriers in voluntary carbon markets for SMEs. Conceptualized a tokenized credit platform with reserve tracking and deployed an interactive Web platform.</p>
+                    <span class="proj-metric">Deployed GitHub Web Platform</span>
+                </div>
+                <!-- Replace # with GitHub/Web link -->
+                <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="proj-link">View GitHub Platform ↗</a>
+            </div>
+
+            <!-- The Outreach Project -->
+            <div class="project-card reveal" style="--order: 6">
+                <div>
+                    <span class="proj-tag">Client Acquisition • IIM-B</span>
+                    <div class="proj-title">The Outreach Project</div>
+                    <p style="color: #777;">Executed a zero-cost acquisition strategy achieving 100% conversion (3/3 clients) generating ₹3,000 in 4 hours; established a repeatable offline sales framework.</p>
+                    <span class="proj-metric">100% Conversion in 4 Hours</span>
+                </div>
+                <!-- Replace # with project link -->
+                <a href="#" target="_blank" rel="noopener noreferrer" class="proj-link">View Sales Framework ↗</a>
+            </div>
+
         </div>
     </section>
 
@@ -557,35 +663,79 @@
         <div class="section-title reveal">Leadership</div>
         <div class="leadership-wrapper">
             <div class="lead-tile reveal" style="--order: 1">
-                <div class="lead-tile-bg">IIMB</div>
+                <div class="lead-tile-bg">SR</div>
                 <span class="lead-tile-org">IIM Bangalore</span>
                 <h4>Student Representative</h4>
-                <p style="color: #777;">Strategic liaison managing administrative escalations and institutional communication.</p>
+                <p style="color: #777;">Primary liaison between students and administration; managed academic communication, administrative coordination, and issue resolution.</p>
             </div>
+            
             <div class="lead-tile reveal" style="--order: 2">
-                <div class="lead-tile-bg">SCH</div>
-                <span class="lead-tile-org">School Proctor</span>
-                <h4>Vice-Captain</h4>
-                <p style="color: #777;">Led operations for 400+ students, managing cross-functional coordination and discipline.</p>
+                <div class="lead-tile-bg">PT</div>
+                <span class="lead-tile-org">IIM Bangalore</span>
+                <h4>Extended Partnership Team</h4>
+                <p style="color: #777;">Supported corporate outreach, partnership proposals, and sponsor pitch deck creation for institutional collaborations.</p>
+            </div>
+
+            <div class="lead-tile reveal" style="--order: 3">
+                <div class="lead-tile-bg">MC</div>
+                <span class="lead-tile-org">IIM Bangalore</span>
+                <h4>Media Cell</h4>
+                <p style="color: #777;">Produced visual media content, directed event coverage, and managed digital outreach pipelines for institutional events.</p>
+            </div>
+
+            <div class="lead-tile reveal" style="--order: 4">
+                <div class="lead-tile-bg">VP</div>
+                <span class="lead-tile-org">School Leadership</span>
+                <h4>Vice-Captain & Proctor</h4>
+                <p style="color: #777;">Led operations for 400+ students; managed discipline, student proctoring, and cross-functional event logistics.</p>
             </div>
         </div>
     </section>
 
-    <!-- SKILLS -->
+    <!-- SKILLS MATRIX -->
     <section id="skills">
-        <div class="section-title reveal">Core Skills</div>
+        <div class="section-title reveal">Skills Matrix</div>
         <div class="skills-container reveal">
             <div class="skill-col" style="--order: 1">
-                <h3>Strategy</h3>
-                <ul><li>Market Research</li><li>Business Modeling</li><li>Operations</li><li>Problem Solving</li></ul>
+                <h3>Business & Strategy</h3>
+                <ul>
+                    <li>Business Analysis</li>
+                    <li>Market Research</li>
+                    <li>Corporate Strategy</li>
+                    <li>Business Model (BMC)</li>
+                    <li>Operations & Logistics</li>
+                    <li>Project Management</li>
+                </ul>
             </div>
             <div class="skill-col" style="--order: 2">
-                <h3>Analytics</h3>
-                <ul><li>Data Analysis</li><li>Financial Analysis</li><li>Content Strategy</li><li>Social Analytics</li></ul>
+                <h3>Finance & Analytics</h3>
+                <ul>
+                    <li>Financial Analysis (DCF)</li>
+                    <li>Data Analysis</li>
+                    <li>Market Sizing (TAM/SAM)</li>
+                    <li>Revenue Forecasting</li>
+                    <li>Social Media Analytics</li>
+                </ul>
             </div>
             <div class="skill-col" style="--order: 3">
-                <h3>Tools</h3>
-                <ul><li>Canva & PPT</li><li>Notion</li><li>Google Workspace</li><li>HTML/CSS</li></ul>
+                <h3>Policy & Research</h3>
+                <ul>
+                    <li>Policy Analysis</li>
+                    <li>International Relations</li>
+                    <li>Academic Research</li>
+                    <li>Report Writing</li>
+                    <li>E-Governance (IKS)</li>
+                </ul>
+            </div>
+            <div class="skill-col" style="--order: 4">
+                <h3>Tools & Tech</h3>
+                <ul>
+                    <li>Microsoft Excel & SQL</li>
+                    <li>Power BI & Google Sheets</li>
+                    <li>PowerPoint & Canva</li>
+                    <li>HTML / CSS & GitHub</li>
+                    <li>Notion & Workspace</li>
+                </ul>
             </div>
         </div>
     </section>
@@ -595,26 +745,28 @@
         <div class="contact-grid reveal">
             <div class="contact-left">
                 <h2>Let's build <br>the future.</h2>
-                <p>Currently open to internships and digital operations projects. Based in Delhi NCR.</p>
+                <p>Open to strategy, digital business operations, research, and venture internships. Based in New Delhi / Delhi NCR.</p>
             </div>
             <div class="contact-card">
                 <div class="contact-info-item">
                     <label>Email</label>
                     <a href="mailto:sparsh.aggarwal24@iimb.ac.in">sparsh.aggarwal24@iimb.ac.in</a>
+                    <a href="mailto:sparsh.aggarwal05@gmail.com" style="font-size: 1.1rem; color: #888; display: block; margin-top: 0.3rem;">sparsh.aggarwal05@gmail.com</a>
                 </div>
                 <div class="contact-info-item">
                     <label>LinkedIn</label>
                     <a href="https://www.linkedin.com/in/sparsh-aggarwal-2027/" target="_blank">Connect on LinkedIn</a>
                 </div>
                 <div class="contact-info-item">
-                    <label>Phone</label>
+                    <label>Phone & Location</label>
                     <span>+91 9811631672</span>
+                    <span style="font-size: 1.1rem; color: #888; display: block; margin-top: 0.3rem;">New Delhi / Delhi NCR, India</span>
                 </div>
             </div>
         </div>
         <div class="footer-content" style="margin-top: 5rem; border-top: 1px solid #222; padding-top: 2rem; font-size: 0.8rem; color: #444; display: flex; justify-content: space-between;">
             <p>&copy; 2026 Sparsh Aggarwal. IIM Bangalore.</p>
-            <p>Strategy • Analytics • Operations</p>
+            <p>Strategy • Research • Analytics • Operations</p>
         </div>
     </section>
 
@@ -646,7 +798,7 @@
             entries.forEach(entry => {
                 if (entry.isIntersecting) { entry.target.classList.add('active'); }
             });
-        }, { threshold: 0.1 });
+        }, { threshold: 0.08 });
         
         document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
@@ -654,11 +806,11 @@
         window.addEventListener('scroll', () => {
             const nav = document.getElementById('navbar');
             if (window.scrollY > 50) {
-                nav.style.background = "rgba(10, 10, 10, 0.9)";
+                nav.style.background = "rgba(10, 10, 10, 0.95)";
                 nav.style.padding = "0.8rem 2rem";
             } else {
                 nav.style.background = "var(--bg-glass)";
-                nav.style.padding = "1.2rem 2.5rem";
+                nav.style.padding = "1.1rem 2.2rem";
             }
         });
     </script>
